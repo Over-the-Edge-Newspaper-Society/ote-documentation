@@ -9,15 +9,28 @@
   border-right: none;
   position: sticky;
   top: calc(var(--ifm-navbar-height, 70px) + 1rem);
-  height: fit-content; /* Natural height instead of viewport height */
-  max-height: calc(100vh - var(--ifm-navbar-height, 70px) - 3rem);
-  overflow: visible; /* Let inner content handle overflow */
+  height: auto; /* Allow natural height */
+  min-height: fit-content; /* Natural height based on content */
+  overflow: visible; /* Let content be fully visible */
   align-self: flex-start;
   flex-shrink: 0;
   margin-right: 2rem;
   margin-bottom: 2rem;
   z-index: 1;
   padding: 0; /* Remove padding from container */
+  width: 280px; /* Fixed width for consistency */
+  /* Override Docusaurus default width control */
+  min-width: 280px;
+  max-width: 280px;
+}
+
+/* Ensure sidebar container has proper spacing and doesn't overflow */
+.theme-doc-sidebar-container::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 0;
+  clear: both;
 }
 
 /* Sidebar Inner Container - IONOS Style Box */
@@ -29,8 +42,20 @@
   padding: 2rem 1.5rem;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  overflow-y: auto;
-  max-height: calc(100vh - var(--ifm-navbar-height, 70px) - 6rem);
+  overflow: visible; /* Allow content to be fully visible */
+  overflow-y: visible; /* Ensure vertical content is not clipped */
+  min-height: fit-content; /* Natural content height */
+  width: 100%; /* Fill the container completely */
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+/* Ensure the sidebar menu doesn't have spacing issues */
+.theme-doc-sidebar-menu:first-child {
+  margin-top: 0;
+}
+
+.theme-doc-sidebar-menu:last-child {
+  margin-bottom: 0;
 }
 
 /* Menu Category Headers */
@@ -115,7 +140,18 @@
   transform: rotate(-90deg);
 }
 
+/* Fix any potential right margin issues */
+.theme-doc-sidebar-container + * {
+  margin-left: 0; /* Ensure content after sidebar doesn't have extra margin */
+}
+
 /* Responsive Design */
+@media (max-width: 1280px) {
+  .theme-doc-sidebar-container {
+    width: 260px; /* Slightly smaller on medium screens */
+  }
+}
+
 @media (max-width: 996px) {
   .theme-doc-sidebar-container {
     margin-right: 0;
@@ -123,13 +159,17 @@
     margin-top: 1rem;
     position: relative;
     height: auto;
-    max-height: none;
+    min-height: fit-content;
+    overflow: visible;
+    width: 100%; /* Full width on mobile */
   }
   
   .theme-doc-sidebar-menu {
     border-radius: var(--ifm-global-radius);
-    max-height: none;
+    overflow: visible; /* Ensure mobile sidebar is not clipped */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    min-height: fit-content;
   }
 }
 
@@ -154,6 +194,26 @@
     padding: 0.625rem 0.75rem;
     font-size: 0.8125rem;
   }
+}
+
+/* Fallback scrolling for very tall content */
+@media (min-height: 800px) {
+  .theme-doc-sidebar-menu {
+    max-height: calc(100vh - var(--ifm-navbar-height, 70px) - 8rem);
+    overflow-y: auto; /* Only add scrolling on tall screens when needed */
+  }
+}
+
+/* Ensure menu items don't get cut off */
+.menu__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: visible;
+}
+
+.menu__list-item {
+  overflow: visible;
 }
 
 /* Dark mode adjustments */

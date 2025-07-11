@@ -45,6 +45,10 @@
   /* Border radius */
   --ifm-global-radius: 8px;
   --ifm-button-border-radius: 6px;
+
+  /* Sidebar width control - Override Docusaurus defaults */
+  --doc-sidebar-width: auto; /* Let our custom styles handle width */
+  --ifm-sidebar-width: 280px; /* Fallback for Docusaurus sidebar width */
 }
 
 /* Dark mode */
