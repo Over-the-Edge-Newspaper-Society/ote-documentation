@@ -1,0 +1,74 @@
+/**
+ * Documentation Content Area Styles
+ * Over the Edge Documentation
+ */
+
+/* Main content area - Unified with TOC */
+.theme-doc-markdown {
+  padding: 2rem;
+  background: var(--ifm-background-color); /* Darker background */
+  border-radius: var(--ifm-global-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Content wrapper to contain both markdown and TOC in unified area */
+.docItemContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module,
+.docItemContainer {
+  flex: 1;
+  min-width: 0;
+  background: var(--ifm-background-color); /* Darker background */
+  border-radius: var(--ifm-global-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  display: flex;
+  overflow: hidden; /* Ensure content doesn't break the unified look */
+}
+
+/* Override the markdown container to remove its individual styling */
+.docItemContainer .theme-doc-markdown {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  flex: 1;
+}
+
+.markdown h1:first-child {
+  margin-top: 0;
+}
+
+/* Code blocks */
+.prism-code {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-global-radius);
+}
+
+/* Pagination */
+.pagination-nav__link {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-global-radius);
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary);
+  background: rgba(68, 165, 127, 0.1);
+}
+
+/* Responsive content */
+@media (max-width: 996px) {
+  .docItemContainer,
+  .docItemContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module {
+    flex-direction: column; /* Stack vertically on mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .docItemContainer .theme-doc-markdown {
+    padding: 1.5rem;
+  }
+}

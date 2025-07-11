@@ -14,6 +14,9 @@
 /* Import Layout Components */
 @import './navbar.css';
 @import './layout.css';
+@import './sidebar.css';
+@import './toc.css';
+@import './content.css';
 @import './hero.css';
 @import './footer.css';
 

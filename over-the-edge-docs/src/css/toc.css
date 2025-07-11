@@ -1,0 +1,81 @@
+/**
+ * Table of Contents Styles
+ * Over the Edge Documentation
+ */
+
+/* Table of Contents - Unified with main content */
+.theme-doc-toc-desktop {
+  border-left: none; /* Remove border for unified look */
+  margin-left: 0;
+  padding: 2rem 1.5rem;
+  position: sticky;
+  top: var(--ifm-navbar-height, 60px);
+  height: calc(100vh - var(--ifm-navbar-height, 60px));
+  overflow-y: auto;
+  align-self: flex-start;
+  flex-shrink: 0;
+  background: var(--ifm-background-color); /* Darker background */
+  z-index: 1;
+}
+
+.table-of-contents {
+  border-left: none;
+  padding-left: 0;
+}
+
+.table-of-contents__heading {
+  font-weight: 600;
+  color: var(--ifm-color-content);
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.table-of-contents__link {
+  color: var(--ifm-color-emphasis-500);
+  font-size: 0.875rem;
+  padding: 0.25rem 0; /* Only vertical padding initially */
+  border-radius: var(--ifm-button-border-radius);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: var(--ifm-color-primary);
+  background: rgba(68, 165, 127, 0.1);
+  padding-left: 0.5rem; /* Add horizontal padding on hover */
+  padding-right: 0.5rem;
+  text-decoration: none;
+}
+
+/* Override TOC container to remove its individual styling when inside doc container */
+.docItemContainer .theme-doc-toc-desktop {
+  background: transparent;
+  border: none;
+  position: sticky;
+  top: var(--ifm-navbar-height, 60px);
+  height: calc(100vh - var(--ifm-navbar-height, 60px));
+}
+
+/* Responsive TOC */
+@media (max-width: 996px) {
+  .theme-doc-toc-desktop {
+    margin-left: 0;
+    margin-top: 0;
+    border-left: none;
+    border-radius: 0;
+    position: relative;
+    height: auto;
+    border-top: 1px solid var(--ifm-color-emphasis-200);
+    margin-top: 2rem;
+    padding-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .docItemContainer .theme-doc-toc-desktop {
+    padding: 1.5rem;
+  }
+}

@@ -1,5 +1,5 @@
 /**
- * Documentation Layout Styles
+ * Main Layout Structure
  * Over the Edge Documentation
  * Design: Entire page uses darker background (#ffffff light / #0f172a dark)
  *         Only sidebar uses surface color (#f8fafc light / #1e293b dark)
@@ -35,159 +35,6 @@
   overflow: visible;
 }
 
-/* Sidebar improvements - Separated design */
-.theme-doc-sidebar-container {
-  background: var(--ifm-background-surface-color);
-  border-right: none; /* Remove border to create separation */
-  position: sticky;
-  top: calc(var(--ifm-navbar-height, 60px) + 1rem); /* Add space from header */
-  height: calc(100vh - var(--ifm-navbar-height, 60px) - 3rem); /* Reduce height to not touch bottom */
-  overflow-y: auto;
-  align-self: flex-start;
-  flex-shrink: 0;
-  margin-right: 2rem; /* Add spacing between sidebar and content */
-  margin-top: 1rem; /* Additional top margin for separation */
-  margin-bottom: 2rem; /* Bottom margin to prevent touching bottom */
-  border-radius: var(--ifm-global-radius);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--ifm-color-emphasis-200);
-}
-
-.theme-doc-sidebar-menu {
-  padding: 2rem 1.5rem;
-}
-
-.menu__link {
-  border-radius: var(--ifm-button-border-radius);
-  padding: 0.75rem 1rem;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  margin-bottom: 0.25rem;
-  display: block;
-}
-
-.menu__link:hover,
-.menu__link--active {
-  background: rgba(68, 165, 127, 0.12);
-  color: var(--ifm-color-primary);
-  text-decoration: none;
-  transform: translateX(2px);
-  box-shadow: 0 2px 4px rgba(68, 165, 127, 0.2);
-}
-
-/* Table of Contents - Unified with main content */
-.theme-doc-toc-desktop {
-  border-left: none; /* Remove border for unified look */
-  margin-left: 0;
-  padding: 2rem 1.5rem;
-  position: sticky;
-  top: var(--ifm-navbar-height, 60px);
-  height: calc(100vh - var(--ifm-navbar-height, 60px));
-  overflow-y: auto;
-  align-self: flex-start;
-  flex-shrink: 0;
-  background: var(--ifm-background-color); /* Darker background */
-}
-
-.table-of-contents {
-  border-left: none;
-  padding-left: 0;
-}
-
-.table-of-contents__heading {
-  font-weight: 600;
-  color: var(--ifm-color-content);
-  margin-bottom: 1rem;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.table-of-contents__link {
-  color: var(--ifm-color-emphasis-500);
-  font-size: 0.875rem;
-  padding: 0.25rem 0; /* Only vertical padding initially */
-  border-radius: var(--ifm-button-border-radius);
-  transition: all 0.2s ease;
-  text-decoration: none;
-}
-
-.table-of-contents__link:hover,
-.table-of-contents__link--active {
-  color: var(--ifm-color-primary);
-  background: rgba(68, 165, 127, 0.1);
-  padding-left: 0.5rem; /* Add horizontal padding on hover */
-  padding-right: 0.5rem;
-  text-decoration: none;
-}
-
-/* Main content area - Unified with TOC */
-.theme-doc-markdown {
-  padding: 2rem;
-  background: var(--ifm-background-color); /* Darker background */
-  border-radius: var(--ifm-global-radius) var(--ifm-global-radius) var(--ifm-global-radius) var(--ifm-global-radius); /* Round all corners for unified area */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  /* Create unified content area with TOC */
-  display: flex;
-  flex-direction: column;
-}
-
-/* Content wrapper to contain both markdown and TOC in unified area */
-.docItemContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module,
-.docItemContainer {
-  flex: 1;
-  min-width: 0;
-  background: var(--ifm-background-color); /* Darker background */
-  border-radius: var(--ifm-global-radius);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  display: flex;
-  overflow: hidden; /* Ensure content doesn't break the unified look */
-}
-
-/* Override the markdown container to remove its individual styling */
-.docItemContainer .theme-doc-markdown {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  border-radius: 0;
-  flex: 1;
-}
-
-/* Override TOC container to remove its individual styling */
-.docItemContainer .theme-doc-toc-desktop {
-  background: transparent;
-  border: none;
-  position: sticky;
-  top: var(--ifm-navbar-height, 60px);
-  height: calc(100vh - var(--ifm-navbar-height, 60px));
-}
-
-.markdown h1:first-child {
-  margin-top: 0;
-}
-
-/* Code blocks */
-.prism-code {
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: var(--ifm-global-radius);
-}
-
-/* Pagination */
-.pagination-nav__link {
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: var(--ifm-global-radius);
-  padding: 1rem;
-  transition: all 0.2s ease;
-}
-
-.pagination-nav__link:hover {
-  border-color: var(--ifm-color-primary);
-  background: rgba(68, 165, 127, 0.1);
-}
-
 /* Additional sticky positioning fixes for Docusaurus */
 .docMainContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocPage-Layout-styles-module,
 .docMainContainer {
@@ -209,55 +56,9 @@ body {
   background-color: var(--ifm-background-color); /* Ensure entire page uses darker background */
 }
 
-/* Fix for when sidebars might not stick properly */
-.theme-doc-sidebar-container,
-.theme-doc-toc-desktop {
-  z-index: 1;
-}
-
-/* Responsive design for unified layout */
+/* Responsive design for main layout */
 @media (max-width: 996px) {
-  .theme-doc-sidebar-container {
-    margin-right: 0;
-    margin-bottom: 1rem;
-    margin-top: 1rem; /* Keep top separation on mobile */
-    border-radius: var(--ifm-global-radius);
-    position: relative; /* Change to relative on mobile */
-    height: auto; /* Let it size naturally on mobile */
-  }
-  
-  .docItemContainer,
-  .docItemContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module {
-    flex-direction: column; /* Stack vertically on mobile */
-  }
-  
-  .theme-doc-toc-desktop {
-    margin-left: 0;
-    margin-top: 0;
-    border-left: none;
-    border-radius: 0;
-    position: relative;
-    height: auto;
-    border-top: 1px solid var(--ifm-color-emphasis-200);
-    margin-top: 2rem;
-    padding-top: 2rem;
-  }
-  
   .main-wrapper {
     padding: 0.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .theme-doc-sidebar-container {
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  }
-  
-  .docItemContainer .theme-doc-markdown {
-    padding: 1.5rem;
-  }
-  
-  .docItemContainer .theme-doc-toc-desktop {
-    padding: 1.5rem;
   }
 }

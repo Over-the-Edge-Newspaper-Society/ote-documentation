@@ -1,0 +1,64 @@
+/**
+ * Sidebar Styles
+ * Over the Edge Documentation
+ */
+
+/* Sidebar improvements - Separated design */
+.theme-doc-sidebar-container {
+  background: var(--ifm-background-surface-color);
+  border-right: none; /* Remove border to create separation */
+  position: sticky;
+  top: calc(var(--ifm-navbar-height, 60px) + 1rem); /* Add space from header */
+  height: calc(100vh - var(--ifm-navbar-height, 60px) - 3rem); /* Reduce height to not touch bottom */
+  overflow-y: auto;
+  align-self: flex-start;
+  flex-shrink: 0;
+  margin-right: 2rem; /* Add spacing between sidebar and content */
+  margin-top: 1rem; /* Additional top margin for separation */
+  margin-bottom: 2rem; /* Bottom margin to prevent touching bottom */
+  border-radius: var(--ifm-global-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  z-index: 1;
+}
+
+.theme-doc-sidebar-menu {
+  padding: 2rem 1.5rem;
+}
+
+.menu__link {
+  border-radius: var(--ifm-button-border-radius);
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.menu__link:hover,
+.menu__link--active {
+  background: rgba(68, 165, 127, 0.12);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  transform: translateX(2px);
+  box-shadow: 0 2px 4px rgba(68, 165, 127, 0.2);
+}
+
+/* Responsive sidebar */
+@media (max-width: 996px) {
+  .theme-doc-sidebar-container {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    margin-top: 1rem; /* Keep top separation on mobile */
+    border-radius: var(--ifm-global-radius);
+    position: relative; /* Change to relative on mobile */
+    height: auto; /* Let it size naturally on mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .theme-doc-sidebar-container {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+}

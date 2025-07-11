@@ -43,9 +43,15 @@
     border-radius: var(--ifm-button-border-radius);
   }
   
+  /* Footer remains full width on all screen sizes */
   .footer {
-    margin: 0 1rem;
-    border-radius: 0 0 var(--ifm-button-border-radius) var(--ifm-button-border-radius);
+    margin: 0;
+    border-radius: 0;
+  }
+  
+  /* Adjust footer container padding for smaller screens */
+  .footer .container {
+    padding: 0 1rem;
   }
   
   .hero {
@@ -79,8 +85,14 @@
     margin: 0 0.75rem;
   }
   
+  /* Footer remains full width on mobile */
   .footer {
-    margin: 0 0.75rem;
+    margin: 0;
+  }
+  
+  /* Adjust footer container padding for mobile */
+  .footer .container {
+    padding: 0 0.75rem;
   }
   
   .hero {

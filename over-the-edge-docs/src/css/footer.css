@@ -3,28 +3,25 @@
  * Over the Edge Documentation
  */
 
-/* Footer */
+/* Footer - Full width design */
 .footer {
   background: var(--ote-brand-green-dark);
   color: white;
-  border-radius: 0 0 var(--ifm-global-radius) var(--ifm-global-radius);
-  max-width: 1200px;
-  margin: 0 auto;
-  border: 1px solid var(--ote-brand-green-dark);
-  border-top: none;
-  /* Ensure footer connects seamlessly with main content */
+  border-radius: 0; /* Remove border radius for full width */
+  max-width: none; /* Remove max-width constraint */
+  margin: 0; /* Remove auto margins */
+  border: none; /* Remove borders for full width */
   margin-top: 0;
-  /* Match the main-wrapper box model exactly */
   box-sizing: border-box;
-  /* Ensure exact width alignment */
-  width: 100%;
+  width: 100%; /* Full width */
+  padding: 3rem 0; /* Add vertical padding, remove horizontal */
 }
 
-/* Ensure footer container exactly matches main content container */
-@media (min-width: 1200px) {
-  .footer {
-    width: 1200px;
-  }
+/* Container for footer content to maintain readable width */
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .footer__title {
