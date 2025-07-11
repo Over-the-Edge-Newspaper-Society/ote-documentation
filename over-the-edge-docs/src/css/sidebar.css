@@ -1,89 +1,72 @@
 /**
- * Sidebar Styles - IONOS Style Contained Design
+ * Sidebar Styles - IONOS Style Proportions
  * Over the Edge Documentation
  */
 
-/* Sidebar Container - IONOS Style Contained */
+/* Sidebar Container - IONOS Style */
 .theme-doc-sidebar-container {
-  background: transparent; /* Transparent container */
+  background: transparent;
   border-right: none;
   position: sticky;
   top: calc(var(--ifm-navbar-height, 70px) + 1rem);
-  height: auto; /* Allow natural height */
-  min-height: fit-content; /* Natural height based on content */
-  overflow: visible; /* Let content be fully visible */
+  height: auto;
+  min-height: fit-content;
+  overflow: visible;
   align-self: flex-start;
   flex-shrink: 0;
-  margin-right: 2rem;
+  margin-right: 1.5rem; /* IONOS-style spacing */
   margin-bottom: 2rem;
   z-index: 1;
-  padding: 0; /* Remove padding from container */
-  width: 280px; /* Fixed width for consistency */
-  /* Override Docusaurus default width control */
-  min-width: 280px;
-  max-width: 280px;
+  padding: 0;
+  /* IONOS-style sidebar width */
+  width: 250px;
+  min-width: 250px;
+  max-width: 250px;
 }
 
-/* Ensure sidebar container has proper spacing and doesn't overflow */
-.theme-doc-sidebar-container::before {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 0;
-  clear: both;
-}
-
-/* Sidebar Inner Container - IONOS Style Box */
+/* Sidebar Inner Container - IONOS Style */
 .theme-doc-sidebar-menu {
   background: var(--ifm-background-surface-color);
   border-radius: var(--ifm-global-radius);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   border: 1px solid var(--ifm-color-emphasis-200);
-  padding: 2rem 1.5rem;
+  padding: 1.5rem 1rem; /* IONOS-style padding */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  overflow: visible; /* Allow content to be fully visible */
-  overflow-y: visible; /* Ensure vertical content is not clipped */
-  min-height: fit-content; /* Natural content height */
-  width: 100%; /* Fill the container completely */
-  box-sizing: border-box; /* Ensure padding is included in width */
-}
-
-/* Ensure the sidebar menu doesn't have spacing issues */
-.theme-doc-sidebar-menu:first-child {
-  margin-top: 0;
-}
-
-.theme-doc-sidebar-menu:last-child {
-  margin-bottom: 0;
+  overflow: visible;
+  overflow-y: visible;
+  min-height: fit-content;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Menu Category Headers */
 .menu__list-item:not(.menu__list-item--collapsed) .menu__list-item-collapsible {
   background: rgba(68, 165, 127, 0.08);
   border-radius: var(--ifm-button-border-radius);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.375rem; /* Tighter IONOS spacing */
 }
 
 .menu__list-item-collapsible .menu__link {
   font-weight: 600;
   color: var(--ifm-color-content);
   font-size: 0.875rem;
-  padding: 0.75rem 1rem;
+  padding: 0.625rem 0.875rem; /* IONOS-style padding */
 }
 
-/* Regular Menu Links */
+/* Regular Menu Links - IONOS Style */
 .menu__link {
   border-radius: var(--ifm-button-border-radius);
-  padding: 0.625rem 1rem;
+  padding: 0.5rem 0.875rem; /* IONOS proportions */
   font-weight: 500;
-  font-size: 0.875rem;
+  font-size: 0.8125rem; /* Slightly smaller for IONOS style */
   transition: all 0.2s ease;
   text-decoration: none;
   margin-bottom: 0.125rem;
   display: block;
   color: var(--ifm-color-emphasis-600);
   position: relative;
+  line-height: 1.4; /* Better line height for IONOS */
 }
 
 .menu__link:hover {
@@ -97,20 +80,20 @@
   background: rgba(68, 165, 127, 0.15);
   color: var(--ifm-color-primary);
   font-weight: 600;
-  transform: translateX(4px);
+  transform: translateX(3px); /* Subtle IONOS-style indication */
 }
 
-/* Nested menu items */
+/* Nested menu items - IONOS Style */
 .menu__list .menu__list {
-  padding-left: 1rem;
-  margin-top: 0.5rem;
+  padding-left: 0.875rem; /* IONOS-style indentation */
+  margin-top: 0.375rem;
   border-left: 1px solid var(--ifm-color-emphasis-200);
-  margin-left: 0.5rem;
+  margin-left: 0.375rem;
 }
 
 .menu__list .menu__list .menu__link {
-  padding: 0.5rem 0.75rem;
-  font-size: 0.8125rem;
+  padding: 0.375rem 0.625rem; /* Smaller nested padding */
+  font-size: 0.75rem; /* Smaller nested font */
   color: var(--ifm-color-emphasis-500);
 }
 
@@ -127,28 +110,34 @@
 
 /* Collapse/Expand Icons */
 .menu__list-item-collapsible .menu__caret:before {
-  background: var(--ifm-menu-link-sublist-icon) 50% / 1.5rem 1.5rem;
+  background: var(--ifm-menu-link-sublist-icon) 50% / 1.25rem 1.25rem;
   filter: var(--ifm-menu-link-sublist-icon-filter);
   content: '';
   display: flex;
-  height: 1.25rem;
+  height: 1rem; /* Smaller for IONOS style */
   transition: transform 0.2s ease;
-  width: 1.25rem;
+  width: 1rem;
 }
 
 .menu__list-item--collapsed .menu__caret:before {
   transform: rotate(-90deg);
 }
 
-/* Fix any potential right margin issues */
-.theme-doc-sidebar-container + * {
-  margin-left: 0; /* Ensure content after sidebar doesn't have extra margin */
-}
-
-/* Responsive Design */
+/* IONOS-style responsive adjustments */
 @media (max-width: 1280px) {
   .theme-doc-sidebar-container {
-    width: 260px; /* Slightly smaller on medium screens */
+    width: 230px; /* Medium screen width */
+    min-width: 230px;
+    max-width: 230px;
+  }
+  
+  .theme-doc-sidebar-menu {
+    padding: 1.25rem 0.875rem;
+  }
+  
+  .menu__link {
+    padding: 0.4375rem 0.75rem;
+    font-size: 0.8125rem;
   }
 }
 
@@ -161,15 +150,16 @@
     height: auto;
     min-height: fit-content;
     overflow: visible;
-    width: 100%; /* Full width on mobile */
+    width: 100%;
   }
   
   .theme-doc-sidebar-menu {
     border-radius: var(--ifm-global-radius);
-    overflow: visible; /* Ensure mobile sidebar is not clipped */
+    overflow: visible;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
     min-height: fit-content;
+    padding: 1.25rem 1rem;
   }
 }
 
@@ -180,18 +170,18 @@
   }
   
   .theme-doc-sidebar-menu {
-    padding: 1.5rem 1rem;
+    padding: 1rem 0.875rem;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     border-radius: var(--ifm-button-border-radius);
   }
   
   .menu__link {
-    padding: 0.75rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.625rem 0.875rem;
+    font-size: 0.875rem;
   }
   
   .menu__list .menu__list .menu__link {
-    padding: 0.625rem 0.75rem;
+    padding: 0.5rem 0.625rem;
     font-size: 0.8125rem;
   }
 }
@@ -200,11 +190,11 @@
 @media (min-height: 800px) {
   .theme-doc-sidebar-menu {
     max-height: calc(100vh - var(--ifm-navbar-height, 70px) - 8rem);
-    overflow-y: auto; /* Only add scrolling on tall screens when needed */
+    overflow-y: auto;
   }
 }
 
-/* Ensure menu items don't get cut off */
+/* Menu structure */
 .menu__list {
   margin: 0;
   padding: 0;
