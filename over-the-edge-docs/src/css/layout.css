@@ -1,6 +1,8 @@
 /**
  * Documentation Layout Styles
  * Over the Edge Documentation
+ * Design: Entire page uses darker background (#ffffff light / #0f172a dark)
+ *         Only sidebar uses surface color (#f8fafc light / #1e293b dark)
  */
 
 /* Shared container for main content and footer */
@@ -10,10 +12,10 @@
   position: relative;
 }
 
-/* Main documentation layout - Simplified for component separation */
+/* Main documentation layout - Dark background for entire page */
 .main-wrapper {
-  background-color: transparent; /* Let individual components handle their own backgrounds */
-  border-radius: 0;
+  background-color: var(--ifm-background-color); /* Darker background for entire layout */
+  border-radius: var(--ifm-global-radius);
   box-shadow: none;
   border: none;
   max-width: 1200px;
@@ -27,6 +29,7 @@
 /* Ensure the doc page wrapper doesn't interfere with sticky positioning */
 .theme-doc-page,
 .docPage_node_modules-\@docusaurus-theme-classic-lib-theme-DocPage-Layout-styles-module {
+  background-color: var(--ifm-background-color);
   display: flex;
   flex-direction: row;
   overflow: visible;
@@ -73,10 +76,10 @@
   box-shadow: 0 2px 4px rgba(68, 165, 127, 0.2);
 }
 
-/* Table of Contents - Connected to main content */
+/* Table of Contents - Unified with main content */
 .theme-doc-toc-desktop {
-  border-left: 1px solid var(--ifm-color-emphasis-200); /* Keep border for connection */
-  margin-left: 0; /* No margin to stay connected */
+  border-left: none; /* Remove border for unified look */
+  margin-left: 0;
   padding: 2rem 1.5rem;
   position: sticky;
   top: var(--ifm-navbar-height, 60px);
@@ -84,7 +87,7 @@
   overflow-y: auto;
   align-self: flex-start;
   flex-shrink: 0;
-  background: var(--ifm-background-color); /* Same as main content */
+  background: var(--ifm-background-color); /* Darker background */
 }
 
 .table-of-contents {
@@ -119,14 +122,47 @@
   text-decoration: none;
 }
 
-/* Main content area - Connected to TOC */
+/* Main content area - Unified with TOC */
 .theme-doc-markdown {
   padding: 2rem;
-  background: var(--ifm-background-color);
-  border-radius: var(--ifm-global-radius) 0 0 var(--ifm-global-radius); /* Only round left corners */
+  background: var(--ifm-background-color); /* Darker background */
+  border-radius: var(--ifm-global-radius) var(--ifm-global-radius) var(--ifm-global-radius) var(--ifm-global-radius); /* Round all corners for unified area */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   border: 1px solid var(--ifm-color-emphasis-200);
-  border-right: none; /* No right border to connect with TOC */
+  /* Create unified content area with TOC */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Content wrapper to contain both markdown and TOC in unified area */
+.docItemContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module,
+.docItemContainer {
+  flex: 1;
+  min-width: 0;
+  background: var(--ifm-background-color); /* Darker background */
+  border-radius: var(--ifm-global-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  display: flex;
+  overflow: hidden; /* Ensure content doesn't break the unified look */
+}
+
+/* Override the markdown container to remove its individual styling */
+.docItemContainer .theme-doc-markdown {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  flex: 1;
+}
+
+/* Override TOC container to remove its individual styling */
+.docItemContainer .theme-doc-toc-desktop {
+  background: transparent;
+  border: none;
+  position: sticky;
+  top: var(--ifm-navbar-height, 60px);
+  height: calc(100vh - var(--ifm-navbar-height, 60px));
 }
 
 .markdown h1:first-child {
@@ -158,22 +194,19 @@
   display: flex;
   flex-direction: row;
   overflow: visible;
+  background-color: var(--ifm-background-color); /* Ensure darker background */
 }
 
-.docItemContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module,
-.docItemContainer {
-  flex: 1;
-  min-width: 0;
-}
-
-/* Ensure the main layout doesn't interfere */
+/* Ensure the main layout doesn't interfere and entire page is darker background */
 html[data-theme='light'],
 html[data-theme='dark'] {
   overflow-x: visible;
+  background-color: var(--ifm-background-color); /* Ensure entire page uses darker background */
 }
 
 body {
   overflow-x: visible;
+  background-color: var(--ifm-background-color); /* Ensure entire page uses darker background */
 }
 
 /* Fix for when sidebars might not stick properly */
@@ -182,7 +215,7 @@ body {
   z-index: 1;
 }
 
-/* Responsive design for separated layout */
+/* Responsive design for unified layout */
 @media (max-width: 996px) {
   .theme-doc-sidebar-container {
     margin-right: 0;
@@ -193,16 +226,21 @@ body {
     height: auto; /* Let it size naturally on mobile */
   }
   
+  .docItemContainer,
+  .docItemContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module {
+    flex-direction: column; /* Stack vertically on mobile */
+  }
+  
   .theme-doc-toc-desktop {
     margin-left: 0;
     margin-top: 0;
-    border-left: 1px solid var(--ifm-color-emphasis-200);
+    border-left: none;
     border-radius: 0;
-  }
-  
-  .theme-doc-markdown {
-    border-radius: var(--ifm-global-radius);
-    border-right: 1px solid var(--ifm-color-emphasis-200);
+    position: relative;
+    height: auto;
+    border-top: 1px solid var(--ifm-color-emphasis-200);
+    margin-top: 2rem;
+    padding-top: 2rem;
   }
   
   .main-wrapper {
@@ -215,10 +253,11 @@ body {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   }
   
-  .theme-doc-markdown {
+  .docItemContainer .theme-doc-markdown {
     padding: 1.5rem;
-    margin: 0.5rem 0;
-    border-radius: var(--ifm-global-radius);
-    border-right: 1px solid var(--ifm-color-emphasis-200);
+  }
+  
+  .docItemContainer .theme-doc-toc-desktop {
+    padding: 1.5rem;
   }
 }
