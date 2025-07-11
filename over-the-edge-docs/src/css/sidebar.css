@@ -1,64 +1,184 @@
 /**
- * Sidebar Styles
+ * Sidebar Styles - IONOS Style Contained Design
  * Over the Edge Documentation
  */
 
-/* Sidebar improvements - Separated design */
+/* Sidebar Container - IONOS Style Contained */
 .theme-doc-sidebar-container {
-  background: var(--ifm-background-surface-color);
-  border-right: none; /* Remove border to create separation */
+  background: transparent; /* Transparent container */
+  border-right: none;
   position: sticky;
-  top: calc(var(--ifm-navbar-height, 60px) + 1rem); /* Add space from header */
-  height: calc(100vh - var(--ifm-navbar-height, 60px) - 3rem); /* Reduce height to not touch bottom */
-  overflow-y: auto;
+  top: calc(var(--ifm-navbar-height, 70px) + 1rem);
+  height: fit-content; /* Natural height instead of viewport height */
+  max-height: calc(100vh - var(--ifm-navbar-height, 70px) - 3rem);
+  overflow: visible; /* Let inner content handle overflow */
   align-self: flex-start;
   flex-shrink: 0;
-  margin-right: 2rem; /* Add spacing between sidebar and content */
-  margin-top: 1rem; /* Additional top margin for separation */
-  margin-bottom: 2rem; /* Bottom margin to prevent touching bottom */
-  border-radius: var(--ifm-global-radius);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--ifm-color-emphasis-200);
+  margin-right: 2rem;
+  margin-bottom: 2rem;
   z-index: 1;
+  padding: 0; /* Remove padding from container */
 }
 
+/* Sidebar Inner Container - IONOS Style Box */
 .theme-doc-sidebar-menu {
+  background: var(--ifm-background-surface-color);
+  border-radius: var(--ifm-global-radius);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--ifm-color-emphasis-200);
   padding: 2rem 1.5rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow-y: auto;
+  max-height: calc(100vh - var(--ifm-navbar-height, 70px) - 6rem);
 }
 
+/* Menu Category Headers */
+.menu__list-item:not(.menu__list-item--collapsed) .menu__list-item-collapsible {
+  background: rgba(68, 165, 127, 0.08);
+  border-radius: var(--ifm-button-border-radius);
+  margin-bottom: 0.5rem;
+}
+
+.menu__list-item-collapsible .menu__link {
+  font-weight: 600;
+  color: var(--ifm-color-content);
+  font-size: 0.875rem;
+  padding: 0.75rem 1rem;
+}
+
+/* Regular Menu Links */
 .menu__link {
   border-radius: var(--ifm-button-border-radius);
-  padding: 0.75rem 1rem;
+  padding: 0.625rem 1rem;
   font-weight: 500;
+  font-size: 0.875rem;
   transition: all 0.2s ease;
   text-decoration: none;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.125rem;
   display: block;
+  color: var(--ifm-color-emphasis-600);
+  position: relative;
 }
 
-.menu__link:hover,
-.menu__link--active {
-  background: rgba(68, 165, 127, 0.12);
+.menu__link:hover {
+  background: rgba(68, 165, 127, 0.1);
   color: var(--ifm-color-primary);
   text-decoration: none;
   transform: translateX(2px);
-  box-shadow: 0 2px 4px rgba(68, 165, 127, 0.2);
 }
 
-/* Responsive sidebar */
+.menu__link--active {
+  background: rgba(68, 165, 127, 0.15);
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  transform: translateX(4px);
+}
+
+/* Nested menu items */
+.menu__list .menu__list {
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+  border-left: 1px solid var(--ifm-color-emphasis-200);
+  margin-left: 0.5rem;
+}
+
+.menu__list .menu__list .menu__link {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--ifm-color-emphasis-500);
+}
+
+.menu__list .menu__list .menu__link:hover {
+  background: rgba(68, 165, 127, 0.08);
+  color: var(--ifm-color-primary);
+}
+
+.menu__list .menu__list .menu__link--active {
+  background: rgba(68, 165, 127, 0.12);
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+/* Collapse/Expand Icons */
+.menu__list-item-collapsible .menu__caret:before {
+  background: var(--ifm-menu-link-sublist-icon) 50% / 1.5rem 1.5rem;
+  filter: var(--ifm-menu-link-sublist-icon-filter);
+  content: '';
+  display: flex;
+  height: 1.25rem;
+  transition: transform 0.2s ease;
+  width: 1.25rem;
+}
+
+.menu__list-item--collapsed .menu__caret:before {
+  transform: rotate(-90deg);
+}
+
+/* Responsive Design */
 @media (max-width: 996px) {
   .theme-doc-sidebar-container {
     margin-right: 0;
     margin-bottom: 1rem;
-    margin-top: 1rem; /* Keep top separation on mobile */
+    margin-top: 1rem;
+    position: relative;
+    height: auto;
+    max-height: none;
+  }
+  
+  .theme-doc-sidebar-menu {
     border-radius: var(--ifm-global-radius);
-    position: relative; /* Change to relative on mobile */
-    height: auto; /* Let it size naturally on mobile */
+    max-height: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 }
 
 @media (max-width: 768px) {
   .theme-doc-sidebar-container {
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    margin-left: 0;
+    margin-right: 0;
   }
+  
+  .theme-doc-sidebar-menu {
+    padding: 1.5rem 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    border-radius: var(--ifm-button-border-radius);
+  }
+  
+  .menu__link {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .menu__list .menu__list .menu__link {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .theme-doc-sidebar-menu {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+[data-theme='dark'] .menu__list-item:not(.menu__list-item--collapsed) .menu__list-item-collapsible {
+  background: rgba(122, 221, 179, 0.1);
+}
+
+[data-theme='dark'] .menu__link:hover {
+  background: rgba(122, 221, 179, 0.15);
+}
+
+[data-theme='dark'] .menu__link--active {
+  background: rgba(122, 221, 179, 0.2);
+}
+
+[data-theme='dark'] .menu__list .menu__list .menu__link:hover {
+  background: rgba(122, 221, 179, 0.1);
+}
+
+[data-theme='dark'] .menu__list .menu__list .menu__link--active {
+  background: rgba(122, 221, 179, 0.15);
 }
