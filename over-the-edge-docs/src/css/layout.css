@@ -10,18 +10,18 @@
   position: relative;
 }
 
-/* Main documentation layout */
+/* Main documentation layout - Simplified for component separation */
 .main-wrapper {
-  background-color: var(--ifm-background-color);
-  border-radius: var(--ifm-global-radius) var(--ifm-global-radius) 0 0;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-bottom: none;
+  background-color: transparent; /* Let individual components handle their own backgrounds */
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
   max-width: 1200px;
   margin: 0 auto;
   overflow: visible; /* Allow sticky elements to work */
   /* Ensure consistent box model */
   box-sizing: border-box;
+  padding: 1rem; /* Add padding around the entire layout */
 }
 
 /* Ensure the doc page wrapper doesn't interfere with sticky positioning */
@@ -32,47 +32,59 @@
   overflow: visible;
 }
 
-/* Sidebar improvements */
+/* Sidebar improvements - Separated design */
 .theme-doc-sidebar-container {
   background: var(--ifm-background-surface-color);
-  border-right: 1px solid var(--ifm-color-emphasis-200);
+  border-right: none; /* Remove border to create separation */
   position: sticky;
-  top: var(--ifm-navbar-height, 60px);
-  height: calc(100vh - var(--ifm-navbar-height, 60px));
+  top: calc(var(--ifm-navbar-height, 60px) + 1rem); /* Add space from header */
+  height: calc(100vh - var(--ifm-navbar-height, 60px) - 3rem); /* Reduce height to not touch bottom */
   overflow-y: auto;
   align-self: flex-start;
   flex-shrink: 0;
+  margin-right: 2rem; /* Add spacing between sidebar and content */
+  margin-top: 1rem; /* Additional top margin for separation */
+  margin-bottom: 2rem; /* Bottom margin to prevent touching bottom */
+  border-radius: var(--ifm-global-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--ifm-color-emphasis-200);
 }
 
 .theme-doc-sidebar-menu {
-  padding: 1.5rem 1rem;
+  padding: 2rem 1.5rem;
 }
 
 .menu__link {
   border-radius: var(--ifm-button-border-radius);
-  padding: 0.5rem 0.75rem;
+  padding: 0.75rem 1rem;
   font-weight: 500;
   transition: all 0.2s ease;
   text-decoration: none;
+  margin-bottom: 0.25rem;
+  display: block;
 }
 
 .menu__link:hover,
 .menu__link--active {
-  background: rgba(68, 165, 127, 0.1);
+  background: rgba(68, 165, 127, 0.12);
   color: var(--ifm-color-primary);
   text-decoration: none;
+  transform: translateX(2px);
+  box-shadow: 0 2px 4px rgba(68, 165, 127, 0.2);
 }
 
-/* Table of Contents */
+/* Table of Contents - Connected to main content */
 .theme-doc-toc-desktop {
-  border-left: 1px solid var(--ifm-color-emphasis-200);
-  padding: 1.5rem 1rem;
+  border-left: 1px solid var(--ifm-color-emphasis-200); /* Keep border for connection */
+  margin-left: 0; /* No margin to stay connected */
+  padding: 2rem 1.5rem;
   position: sticky;
   top: var(--ifm-navbar-height, 60px);
   height: calc(100vh - var(--ifm-navbar-height, 60px));
   overflow-y: auto;
   align-self: flex-start;
   flex-shrink: 0;
+  background: var(--ifm-background-color); /* Same as main content */
 }
 
 .table-of-contents {
@@ -107,9 +119,14 @@
   text-decoration: none;
 }
 
-/* Main content area */
+/* Main content area - Connected to TOC */
 .theme-doc-markdown {
   padding: 2rem;
+  background: var(--ifm-background-color);
+  border-radius: var(--ifm-global-radius) 0 0 var(--ifm-global-radius); /* Only round left corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-right: none; /* No right border to connect with TOC */
 }
 
 .markdown h1:first-child {
@@ -163,4 +180,45 @@ body {
 .theme-doc-sidebar-container,
 .theme-doc-toc-desktop {
   z-index: 1;
+}
+
+/* Responsive design for separated layout */
+@media (max-width: 996px) {
+  .theme-doc-sidebar-container {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    margin-top: 1rem; /* Keep top separation on mobile */
+    border-radius: var(--ifm-global-radius);
+    position: relative; /* Change to relative on mobile */
+    height: auto; /* Let it size naturally on mobile */
+  }
+  
+  .theme-doc-toc-desktop {
+    margin-left: 0;
+    margin-top: 0;
+    border-left: 1px solid var(--ifm-color-emphasis-200);
+    border-radius: 0;
+  }
+  
+  .theme-doc-markdown {
+    border-radius: var(--ifm-global-radius);
+    border-right: 1px solid var(--ifm-color-emphasis-200);
+  }
+  
+  .main-wrapper {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .theme-doc-sidebar-container {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+  
+  .theme-doc-markdown {
+    padding: 1.5rem;
+    margin: 0.5rem 0;
+    border-radius: var(--ifm-global-radius);
+    border-right: 1px solid var(--ifm-color-emphasis-200);
+  }
 }
