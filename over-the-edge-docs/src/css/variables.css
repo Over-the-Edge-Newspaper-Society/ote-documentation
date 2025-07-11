@@ -1,0 +1,67 @@
+/**
+ * CSS Custom Properties and Variables
+ * Over the Edge Documentation
+ */
+
+/* Modern CSS Custom Properties */
+:root {
+  /* OTE Brand Colors */
+  --ote-brand-green-dark: #2c6753;
+  --ote-brand-green-medium: #44a57f;
+  --ote-brand-green-light: #7addb3;
+  
+  /* Override Docusaurus defaults with our colors */
+  --ifm-color-primary: var(--ote-brand-green-medium);
+  --ifm-color-primary-dark: var(--ote-brand-green-dark);
+  --ifm-color-primary-darker: #1e4d38;
+  --ifm-color-primary-darkest: #0f2a1f;
+  --ifm-color-primary-light: #5cb38f;
+  --ifm-color-primary-lighter: var(--ote-brand-green-light);
+  --ifm-color-primary-lightest: #9ee8c5;
+  
+  /* Modern neutral colors */
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #f8fafc;
+  --ifm-card-background-color: #ffffff;
+  
+  /* Border and emphasis colors */
+  --ifm-color-emphasis-100: #f1f5f9;
+  --ifm-color-emphasis-200: #e2e8f0;
+  --ifm-color-emphasis-300: #cbd5e1;
+  --ifm-color-emphasis-400: #94a3b8;
+  --ifm-color-emphasis-500: #64748b;
+  --ifm-color-emphasis-600: #475569;
+  
+  /* Typography */
+  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.625;
+  
+  /* Navbar */
+  --ifm-navbar-height: 70px;
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  
+  /* Border radius */
+  --ifm-global-radius: 8px;
+  --ifm-button-border-radius: 6px;
+}
+
+/* Dark mode */
+[data-theme='dark'] {
+  --ifm-background-color: #0f172a;
+  --ifm-background-surface-color: #1e293b;
+  --ifm-card-background-color: #1e293b;
+  --ifm-navbar-background-color: #0f172a;
+  
+  --ifm-color-primary: var(--ote-brand-green-light);
+  --ifm-color-primary-dark: var(--ote-brand-green-medium);
+  --ifm-color-primary-darker: var(--ote-brand-green-dark);
+  
+  --ifm-color-emphasis-100: #334155;
+  --ifm-color-emphasis-200: #475569;
+  --ifm-color-emphasis-300: #64748b;
+  --ifm-color-emphasis-400: #94a3b8;
+  --ifm-color-emphasis-500: #cbd5e1;
+  --ifm-color-emphasis-600: #e2e8f0;
+}

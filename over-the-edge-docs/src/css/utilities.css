@@ -1,0 +1,125 @@
+/**
+ * Utility Classes and Responsive Design
+ * Over the Edge Documentation
+ */
+
+/* Utility classes for markdown content */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -0.75rem;
+}
+
+.col {
+  padding: 0 0.75rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.row .col .card {
+  height: 100%;
+}
+
+/* Section spacing */
+.margin-vert--lg {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+/* Responsive design */
+@media (max-width: 996px) {
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+  
+  .navbar__inner {
+    padding: 0 1rem;
+    border-radius: var(--ifm-button-border-radius);
+  }
+  
+  .main-wrapper {
+    margin: 0 1rem;
+    border-radius: var(--ifm-button-border-radius);
+  }
+  
+  .footer {
+    margin: 0 1rem;
+    border-radius: 0 0 var(--ifm-button-border-radius) var(--ifm-button-border-radius);
+  }
+  
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+  
+  .hero__title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .navbar__inner {
+    padding: 0 0.75rem;
+    height: 60px;
+  }
+  
+  .navbar__logo {
+    height: 32px;
+  }
+  
+  .navbar__title {
+    font-size: 1rem;
+  }
+  
+  .main-wrapper {
+    margin: 0 0.75rem;
+  }
+  
+  .footer {
+    margin: 0 0.75rem;
+  }
+  
+  .hero {
+    padding: 2rem 1rem;
+  }
+  
+  .hero__title {
+    font-size: 2rem;
+  }
+  
+  .hero__subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .hero__buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .card__image {
+    padding: 1.5rem;
+    min-height: 100px;
+  }
+  
+  .margin-vert--lg {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.875rem;
+  }
+  
+  .theme-doc-markdown {
+    padding: 1rem;
+  }
+}
