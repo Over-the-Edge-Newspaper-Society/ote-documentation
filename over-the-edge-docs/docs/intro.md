@@ -1,23 +1,140 @@
 ---
+slug: /
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Over the Edge Documentation
 
-Let's discover **Docusaurus in less than 5 minutes**.
+<div className="hero-banner">
+  <h1 className="hero__title">Over the Edge</h1>
+  <p className="hero__subtitle">
+    Editorial Style Guide & Documentation for Professional Journalism
+  </p>
+  <div className="hero__buttons">
+    <a className="button button--secondary button--lg" href="/quickstart">
+      Get Started - 5min ⏱️
+    </a>
+  </div>
+</div>
 
-## Getting Started
+---
 
-Get started by **creating a new site**.
+## Documentation Spotlight
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+<div className="row">
+  <div className="col col--6">
+    <div className="card shadow--md">
+      <div className="card__image">
+        <img src="/img/ote-logo.svg" alt="Style Guide" style={{height: '60px', objectFit: 'contain', padding: '20px'}} />
+      </div>
+      <div className="card__body">
+        <h3>Latest Editorial Standards</h3>
+        <p>Discover our latest editorial standards, writing guidelines, and process improvements to enhance journalism quality.</p>
+      </div>
+      <div className="card__footer">
+        <a href="/style-guide" className="button button--primary">View Standards</a>
+      </div>
+    </div>
+  </div>
+  <div className="col col--6">
+    <div className="card shadow--md">
+      <div className="card__image">
+        <img src="/img/ote-logo.svg" alt="Quick Start" style={{height: '60px', objectFit: 'contain', padding: '20px'}} />
+      </div>
+      <div className="card__body">
+        <h3>Quick Start Guide</h3>
+        <p>Navigate directly to essential guidelines to accelerate your writing process and boost editorial efficiency.</p>
+      </div>
+      <div className="card__footer">
+        <a href="/quickstart" className="button button--primary">Get Started</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-### What you'll need
+---
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+## Set Up Over the Edge
 
-## Generate a new site
+<div className="row">
+  <div className="col col--4">
+    <div className="card shadow--md">
+      <div className="card__image">
+        <img src="/img/ote-logo.svg" alt="Style Guide" style={{height: '60px', objectFit: 'contain', padding: '20px'}} />
+      </div>
+      <div className="card__body">
+        <h3>Style Guide</h3>
+        <p>Complete editorial standards and writing guidelines for consistent, professional journalism.</p>
+      </div>
+      <div className="card__footer">
+        <a href="/style-guide" className="button button--outline button--primary">Learn More</a>
+      </div>
+    </div>
+  </div>
+  <div className="col col--4">
+    <div className="card shadow--md">
+      <div className="card__image">
+        <img src="/img/ote-logo.svg" alt="Editorial Process" style={{height: '60px', objectFit: 'contain', padding: '20px'}} />
+      </div>
+      <div className="card__body">
+        <h3>Editorial Process</h3>
+        <p>Step-by-step workflow from story pitch to publication, including review and approval processes.</p>
+      </div>
+      <div className="card__footer">
+        <a href="/editorial-process" className="button button--outline button--primary">Learn More</a>
+      </div>
+    </div>
+  </div>
+  <div className="col col--4">
+    <div className="card shadow--md">
+      <div className="card__image">
+        <img src="/img/ote-logo.svg" alt="Submission Process" style={{height: '60px', objectFit: 'contain', padding: '20px'}} />
+      </div>
+      <div className="card__body">
+        <h3>Submission Workflow</h3>
+        <p>Automated submission processing system from form receipt through final publication filing.</p>
+      </div>
+      <div className="card__footer">
+        <a href="/submission-process" className="button button--outline button--primary">Learn More</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Writer Reference
+
+<div className="row">
+  <div className="col col--6">
+    <div className="card shadow--md">
+      <div className="card__image">
+        <img src="/img/ote-logo.svg" alt="Resources" style={{height: '60px', objectFit: 'contain', padding: '20px'}} />
+      </div>
+      <div className="card__body">
+        <h3>📊 Resources</h3>
+        <p>Templates, checklists, and tools for writers, editors, and contributors to streamline the publishing process.</p>
+      </div>
+      <div className="card__footer">
+        <a href="/resources" className="button button--outline button--primary">Browse Resources</a>
+      </div>
+    </div>
+  </div>
+  <div className="col col--6">
+    <div className="card shadow--md">
+      <div className="card__image">
+        <img src="/img/ote-logo.svg" alt="Templates" style={{height: '60px', objectFit: 'contain', padding: '20px'}} />
+      </div>
+      <div className="card__body">
+        <h3>📝 Templates</h3>
+        <p>Ready-to-use templates for articles, press releases, and editorial content to maintain consistency.</p>
+      </div>
+      <div className="card__footer">
+        <a href="/resources/templates" className="button button--outline button--primary">View Templates</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 Generate a new Docusaurus site using the **classic template**.
 

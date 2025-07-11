@@ -200,27 +200,114 @@
   color: var(--ote-brand-green-dark);
 }
 
-/* Custom button styles - use brand colors for primary actions */
+/* Card Enhancements - IONOS Style */
+.card.shadow--md {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  transition: all 0.2s ease-in-out;
+  height: 100%;
+}
+
+.card.shadow--md:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  border-color: var(--ote-brand-green-light);
+}
+
+.card__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.card__body {
+  padding: 1.5rem;
+}
+
+.card__body h3 {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+}
+
+.card__body p {
+  color: var(--ifm-color-emphasis-600);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.card__footer {
+  padding: 0 1.5rem 1.5rem;
+  margin-top: auto;
+}
+
+.card__footer .button {
+  width: 100%;
+  font-weight: 500;
+}
+
+/* Section spacing improvements */
+.container.margin-vert--lg {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.container.margin-vert--lg h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Hero improvements */
+.hero__title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--ifm-color-primary);
+  margin-bottom: 1rem;
+}
+
+.hero__subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.hero__buttons {
+  margin-top: 2rem;
+}
+
+/* Button enhancements */
+.button--outline.button--primary {
+  background: transparent;
+  border: 1px solid var(--ote-brand-green-medium);
+  color: var(--ote-brand-green-medium);
+}
+
+.button--outline.button--primary:hover {
+  background: var(--ote-brand-green-medium);
+  color: white;
+  border-color: var(--ote-brand-green-medium);
+}
+
 .button--primary {
   background: var(--ote-brand-green-medium);
-  border: 1px solid var(--ote-brand-green-medium);
+  border-color: var(--ote-brand-green-medium);
 }
 
 .button--primary:hover {
   background: var(--ote-brand-green-dark);
   border-color: var(--ote-brand-green-dark);
-}
-
-.button--secondary {
-  background: var(--ote-brand-green-medium);
-  border: 2px solid var(--ote-brand-green-medium);
-  color: white;
-}
-
-.button--secondary:hover {
-  background: var(--ote-brand-green-dark);
-  border-color: var(--ote-brand-green-dark);
-  color: white;
 }
 
 /* Footer styling */
@@ -312,6 +399,59 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--ote-brand-green-medium);
 }
 
+/* Hero banner for docs homepage */
+.hero-banner {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  text-align: center;
+  padding: 4rem 2rem;
+  margin: -2rem -2rem 3rem -2rem;
+  border-radius: 12px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.hero-banner .hero__title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--ifm-color-primary);
+  margin-bottom: 1rem;
+}
+
+.hero-banner .hero__subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.hero-banner .hero__buttons {
+  margin-top: 2rem;
+}
+
+/* Adjust spacing for docs content */
+.markdown > h2 {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--ifm-color-primary);
+}
+
+.markdown > hr {
+  margin: 3rem 0;
+  border: none;
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+}
+
+/* Make cards work in markdown */
+.markdown .card.shadow--md {
+  margin-bottom: 1.5rem;
+}
+
 /* Responsive improvements */
 @media (max-width: 768px) {
   .hero--primary {
@@ -336,5 +476,23 @@ h1, h2, h3, h4, h5, h6 {
   
   .hero__content {
     text-align: center;
+  }
+  
+  .card.shadow--md {
+    margin-bottom: 1rem;
+  }
+  
+  .container.margin-vert--lg {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .container.margin-vert--lg h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero__title {
+    font-size: 2rem;
   }
 }

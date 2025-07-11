@@ -24,7 +24,7 @@ const config: Config = {
   url: 'https://overtheedge.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/docs/',
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -48,26 +48,13 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          routeBasePath: '/', // Docs-only mode
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/overtheedge/docs/tree/main/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/overtheedge/docs/tree/main/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false, // Disable blog in docs-only mode
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -91,6 +78,7 @@ const config: Config = {
     },
     
     navbar: {
+      title: 'Over the Edge',
       logo: {
         alt: 'Over the Edge Logo',
         src: 'img/ote-logo.svg',
@@ -100,11 +88,26 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
+          label: 'Documentation',
+        },
+        {
+          to: '/quickstart',
+          position: 'left',
+          label: 'Quick Start',
+        },
+        {
+          to: '/style-guide',
+          position: 'left',
           label: 'Style Guide',
         },
         {
+          to: '/resources',
+          position: 'left',
+          label: 'Resources',
+        },
+        {
           href: 'https://github.com/overtheedge/docs',
-          label: 'Edit on GitHub',
+          label: 'GitHub',
           position: 'right',
         },
       ],
@@ -124,11 +127,11 @@ const config: Config = {
           items: [
             {
               label: 'Style Guide',
-              to: '/docs/style-guide/',
+              to: '/style-guide/',
             },
             {
               label: 'Editorial Process',
-              to: '/docs/editorial-process/',
+              to: '/editorial-process/',
             },
           ],
         },
@@ -141,7 +144,7 @@ const config: Config = {
             },
             {
               label: 'Templates',
-              to: '/docs/resources/templates',
+              to: '/resources/templates',
             },
           ],
         },
