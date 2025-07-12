@@ -31,7 +31,7 @@ Templates, checklists, and helpful tools for:
 1. **Review the Style Guide** - Start with our [Writing Standards](/style-guide/writing-standards)
 2. **Understand Our Process** - Check the [Story Workflow](/editorial-process/story-workflow)
 3. **Access Resources** - Download [Templates](/resources/templates) you'll need
-4. **Submit Your First Article** - Follow our [submission guidelines](/editorial-process/story-workflow#submission)
+4. **Submit Your First Article** - Follow our [submission guidelines](/editorial-process/story-workflow)
 
 ## Need Help?
 
