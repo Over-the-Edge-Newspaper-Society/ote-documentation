@@ -54,6 +54,7 @@
   --ionos-sidebar-width: 250px;
   --ionos-toc-width: 220px;
   --ionos-content-gap: 1.5rem;
+  --ote-sticky-offset: 1rem; /* Offset for sticky elements */
   
   /* Override Docusaurus sidebar width control */
   --doc-sidebar-width: var(--ionos-sidebar-width);

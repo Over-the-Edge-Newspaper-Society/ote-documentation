@@ -8,7 +8,7 @@
   background: transparent;
   border-right: none;
   position: sticky;
-  top: calc(var(--ifm-navbar-height, 70px) + var(--ote-sticky-offset));
+  top: calc(var(--ifm-navbar-height, 70px) + var(--ote-sticky-offset, 1rem));
   height: auto;
   min-height: fit-content;
   overflow: visible;
@@ -52,12 +52,20 @@ div[class*="sidebar_"] {
   padding-left: 2rem !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+  overflow: visible !important; /* Ensure parent doesn't clip sticky positioning */
 }
 
 /* Remove extra spacing from Docusaurus menu container */
 nav[class*="menu_"] {
   margin-top: 0 !important;
   padding-top: 0 !important;
+}
+
+/* Remove extra spacing from Docusaurus menu container */
+nav[class*="docSidebarContainer_"] {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  border-right-width: 0 !important; /* Remove right border */
 }
 
 /* Menu Category Headers */
