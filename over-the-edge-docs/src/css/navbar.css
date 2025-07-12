@@ -1,37 +1,19 @@
 /**
- * Navigation Bar Styles - IONOS Style Consistent Width System
+ * Navigation Bar Styles - Fixed Mobile Version
  * Over the Edge Documentation
  */
 
-/* Contained Navigation Bar - IONOS Style with consistent widths */
+/* Main navbar container */
 .navbar {
   background-color: transparent;
   box-shadow: none;
   border-bottom: none;
   padding: 1rem 0;
   height: auto;
-  /* Full width container */
   width: 100%;
 }
 
-.navbar > .navbar__inner {
-  background-color: var(--ifm-navbar-background-color);
-  border-radius: var(--ifm-global-radius);
-  box-shadow: var(--ifm-navbar-shadow);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  height: var(--ifm-navbar-height);
-  display: flex;
-  align-items: center;
-  padding: 0 1.5rem;
-  /* Use the same max-width system as main content */
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-/* Override any existing navbar__inner to maintain consistency */
+/* Navbar inner container - single definition to avoid conflicts */
 .navbar__inner {
   background-color: var(--ifm-navbar-background-color);
   border-radius: var(--ifm-global-radius);
@@ -42,12 +24,13 @@
   align-items: center;
   padding: 0 1.5rem;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
+/* Brand section */
 .navbar__brand {
   margin-right: 2rem;
   flex-shrink: 0;
@@ -65,6 +48,7 @@
   margin-left: 0.75rem;
 }
 
+/* Navigation items */
 .navbar__items {
   display: flex;
   align-items: center;
@@ -101,7 +85,7 @@
   text-decoration: none;
 }
 
-/* Mobile menu styling with consistent widths */
+/* Mobile menu toggle - show at tablet size */
 .navbar__toggle {
   color: var(--ifm-color-content);
   background: transparent;
@@ -109,8 +93,13 @@
   padding: 0.5rem;
   border-radius: var(--ifm-button-border-radius);
   display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Mobile sidebar styling */
 .navbar-sidebar {
   background: var(--ifm-navbar-background-color);
   border-radius: var(--ifm-global-radius);
@@ -140,46 +129,50 @@
   padding: 0.5rem 1.5rem;
 }
 
-/* Responsive navbar with consistent width breakpoints */
-@media (max-width: 1536px) {
-  .navbar__inner {
-    max-width: 1280px;
-  }
-}
+/* Responsive breakpoints - fixed mobile handling */
 
-@media (max-width: 1280px) {
-  .navbar__inner {
-    max-width: 1024px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .navbar__inner {
-    max-width: 768px;
+/* Large screens */
+@media (min-width: 997px) {
+  .navbar__toggle {
+    display: none !important;
   }
   
+  .navbar__items--left .navbar__item {
+    display: flex;
+  }
+}
+
+/* Tablet and below - show mobile menu */
+@media (max-width: 996px) {
   .navbar__toggle {
     display: flex;
   }
   
+  /* Hide desktop menu items on mobile, but keep important ones */
   .navbar__items--left .navbar__item:not(.navbar__item--show-mobile) {
     display: none;
   }
+  
+  .navbar__inner {
+    max-width: 100%;
+    margin: 0 1rem;
+  }
+  
+  .navbar__brand {
+    margin-right: 1rem;
+  }
 }
 
+/* Tablet specific adjustments */
 @media (max-width: 768px) {
   .navbar {
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 0;
   }
   
   .navbar__inner {
     padding: 0 1rem;
     border-radius: var(--ifm-button-border-radius);
-    max-width: 640px;
-  }
-  
-  .navbar__brand {
-    margin-right: 1rem;
+    margin: 0 0.75rem;
   }
   
   .navbar__logo {
@@ -197,22 +190,16 @@
   }
 }
 
-@media (max-width: 640px) {
-  .navbar__inner {
-    max-width: 480px;
-  }
-}
-
+/* Mobile specific adjustments */
 @media (max-width: 480px) {
   .navbar {
-    padding: 0.5rem 0.75rem;
+    padding: 0.5rem 0;
   }
   
   .navbar__inner {
     padding: 0 0.75rem;
     height: 60px;
-    max-width: 100%;
-    margin: 0;
+    margin: 0 0.5rem;
     border-radius: var(--ifm-button-border-radius);
   }
   
@@ -228,6 +215,30 @@
     font-size: 0.9rem;
     margin-left: 0.375rem;
   }
+  
+  .navbar__toggle {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .navbar-sidebar {
+    margin: 0.125rem;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .navbar__inner {
+    margin: 0 0.25rem;
+  }
+  
+  .navbar__title {
+    display: none; /* Hide title on very small screens to save space */
+  }
+  
+  .navbar__brand {
+    margin-right: 0.5rem;
+  }
 }
 
 /* Dark mode adjustments */
@@ -242,4 +253,24 @@
 [data-theme='dark'] .navbar__link:hover,
 [data-theme='dark'] .navbar__link--active {
   background-color: rgba(122, 221, 179, 0.15);
+}
+
+/* Ensure mobile menu icon is visible */
+.navbar__toggle svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Fix any layout issues with the toggle button */
+.navbar__items--right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Ensure proper spacing on mobile */
+@media (max-width: 996px) {
+  .navbar__items--right {
+    margin-left: auto;
+  }
 }
