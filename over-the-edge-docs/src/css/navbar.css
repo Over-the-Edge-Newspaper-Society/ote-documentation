@@ -28,6 +28,7 @@
   margin: 0 auto;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  justify-content: space-between;
 }
 
 /* Brand section */
@@ -148,9 +149,25 @@
     display: flex;
   }
   
-  /* Hide desktop menu items on mobile, but keep important ones */
-  .navbar__items--left .navbar__item:not(.navbar__item--show-mobile) {
-    display: none;
+  /* Multiple targeting strategy to hide desktop menu items on mobile */
+  .navbar__items--left {
+    display: none !important;
+  }
+  
+  /* Target individual navbar items directly */
+  .navbar__inner > .navbar__item:not(.navbar__toggle):not([class*="right"]) {
+    display: none !important;
+  }
+  
+  /* Broad targeting with exceptions for brand and toggle */
+  .navbar__inner .navbar__item:not(.navbar__toggle):not(.navbar__brand) {
+    display: none !important;
+  }
+  
+  /* Ensure right-side items stay visible */
+  .navbar__items--right .navbar__item,
+  .theme-layout-navbar-right .navbar__item {
+    display: flex !important;
   }
   
   .navbar__inner {
