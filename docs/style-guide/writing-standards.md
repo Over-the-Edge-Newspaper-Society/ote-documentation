@@ -123,4 +123,4 @@ Before submission, every article should be reviewed for:
 
 ---
 
-*For specific style questions not covered here, refer to the [AP Style Guidelines](/docs/style-guide/ap-style) or contact the editorial team.*
+*For specific style questions not covered here, refer to the [AP Style Guidelines](/style-guide/ap-style) or contact the editorial team.*

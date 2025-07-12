@@ -28,15 +28,15 @@ Templates, checklists, and helpful tools for:
 
 ## Getting Started in 5 Minutes
 
-1. **Review the Style Guide** - Start with our [Writing Standards](/docs/style-guide/writing-standards)
-2. **Understand Our Process** - Check the [Story Workflow](/docs/editorial-process/story-workflow)
-3. **Access Resources** - Download [Templates](/docs/resources/templates) you'll need
-4. **Submit Your First Article** - Follow our [submission guidelines](/docs/editorial-process/story-workflow#submission)
+1. **Review the Style Guide** - Start with our [Writing Standards](/style-guide/writing-standards)
+2. **Understand Our Process** - Check the [Story Workflow](/editorial-process/story-workflow)
+3. **Access Resources** - Download [Templates](/resources/templates) you'll need
+4. **Submit Your First Article** - Follow our [submission guidelines](/editorial-process/story-workflow#submission)
 
 ## Need Help?
 
 - 📧 Contact our editorial team: [editor@overtheedge.org](mailto:editor@overtheedge.org)
-- 📋 Submit an article: [Article Submission Form](/submit)
+- 📋 Submit an article: Use our submission form (contact editorial team for access)
 - 📖 Browse the full documentation using the sidebar navigation
 
 ---

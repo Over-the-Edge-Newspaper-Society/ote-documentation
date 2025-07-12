@@ -2,8 +2,6 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-
 const config: Config = {
   title: 'Over the Edge',
   tagline: 'News Documentation & Style Guide',
@@ -21,15 +19,14 @@ const config: Config = {
   themes: ['@docusaurus/theme-mermaid'],
 
   // Set the production url of your site here
-  url: 'https://overtheedge.github.io',
+  url: 'https://over-the-edge-newspaper-society.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/over-the-edge-docs/',
 
   // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'overtheedge', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
+  organizationName: 'Over-the-Edge-Newspaper-Society', // Your actual GitHub org name
+  projectName: 'over-the-edge-docs', // Your actual repo name
+  deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -52,7 +49,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/overtheedge/docs/tree/main/',
+            'https://github.com/Over-the-Edge-Newspaper-Society/over-the-edge-docs/tree/main/',
         },
         blog: false, // Disable blog in docs-only mode
         theme: {
@@ -106,7 +103,7 @@ const config: Config = {
           label: 'Resources',
         },
         {
-          href: 'https://github.com/overtheedge/docs',
+          href: 'https://github.com/Over-the-Edge-Newspaper-Society/over-the-edge-docs',
           label: 'GitHub',
           position: 'right',
         },
