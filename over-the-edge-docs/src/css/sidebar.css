@@ -8,14 +8,15 @@
   background: transparent;
   border-right: none;
   position: sticky;
-  top: calc(var(--ifm-navbar-height, 70px) + 1rem);
+  top: calc(var(--ifm-navbar-height, 70px) + var(--ote-sticky-offset));
   height: auto;
   min-height: fit-content;
   overflow: visible;
   align-self: flex-start;
   flex-shrink: 0;
   margin-right: 1.5rem; /* IONOS-style spacing */
-  margin-bottom: 2rem;
+  margin-bottom: 0; /* Remove bottom margin for perfect alignment */
+  margin-top: 1rem; /* Additional offset to align with breadcrumbs */
   margin-left: auto; /* Right-justify the sidebar in its column */
   z-index: 1;
   padding: 0;
@@ -42,6 +43,18 @@
   width: 100%;
   box-sizing: border-box;
   margin-left: auto; /* Right-align within the sidebar container */
+}
+
+/* Remove extra padding from Docusaurus sidebar wrapper */
+div[class*="sidebar_"] {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Remove extra spacing from Docusaurus menu container */
+nav[class*="menu_"] {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 /* Menu Category Headers */
