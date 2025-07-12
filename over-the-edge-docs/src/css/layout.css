@@ -104,16 +104,13 @@ div[class*="docsWrapper"] {
   }
 }
 
-/* Ensure proper horizontal layout on desktop */
+/* Desktop layout - side-by-side */
 @media (min-width: 997px) {
   .theme-doc-page,
   div[class*="docPage"] {
     flex-direction: row; /* Side-by-side layout for sidebar and content */
   }
-}
-
-/* Additional fixes to ensure sidebar and content stay within centered layout */
-@media (min-width: 997px) {
+  
   /* Ensure the main documentation container doesn't exceed bounds */
   main[class*="docMainContainer"] {
     box-sizing: border-box;
@@ -133,6 +130,7 @@ div[class*="docsWrapper"] {
   
   /* Ensure sidebar stays within bounds with proper flex */
   .theme-doc-sidebar-container {
+    display: flex !important; /* Force show on desktop */
     flex-shrink: 0;
     margin-left: 0;
     margin-right: 1.5rem;
@@ -144,6 +142,27 @@ div[class*="docsWrapper"] {
     min-width: 0; /* Prevent overflow */
     max-width: none; /* Let flex handle the width */
     margin-left: 0; /* Ensure no negative left margin */
+  }
+}
+
+/* Mobile layout - single column */
+@media (max-width: 996px) {
+  .theme-doc-page,
+  div[class*="docPage"] {
+    flex-direction: column !important; /* Stack vertically on mobile/tablet */
+  }
+  
+  /* Hide sidebar on mobile - it should be in a mobile menu instead */
+  .theme-doc-sidebar-container {
+    display: none !important;
+  }
+  
+  /* Content takes full width on mobile */
+  div[class*="docItemContainer"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    flex: none !important;
   }
 }
 
@@ -271,9 +290,27 @@ main[class*="docMainContainer"] {
 }
 
 @media (max-width: 996px) {
+  /* Mobile layout adjustments */
+  main[class*="docMainContainer"] {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  
   .theme-doc-page,
   div[class*="docPage"] {
-    flex-direction: column; /* Stack vertically on mobile/tablet */
+    flex-direction: column !important; /* Single column layout */
+    max-width: 100%;
+  }
+  
+  div[class*="docItemContainer"] {
+    max-width: 100%;
+    margin: 0; /* Remove auto margins on smaller screens */
+    width: 100%;
+    flex: none;
+  }
+  
+  div[class*="docsWrapper"] {
+    padding: 0 1rem;
   }
 }
 

@@ -128,7 +128,24 @@
 }
 
 /* IONOS-style responsive adjustments */
-@media (max-width: 1280px) {
+@media (min-width: 997px) {
+  /* Desktop sidebar styling */
+  .theme-doc-sidebar-container {
+    display: flex !important; /* Ensure sidebar is visible on desktop */
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
+    margin-left: auto; /* Right-justify the sidebar in its column */
+    margin-right: 1.5rem;
+  }
+  
+  .theme-doc-sidebar-menu {
+    padding: 1.5rem 1rem;
+    margin-left: auto; /* Right-align within the sidebar container */
+  }
+}
+
+@media (max-width: 1280px) and (min-width: 997px) {
   .theme-doc-sidebar-container {
     width: 230px; /* Medium screen width */
     min-width: 230px;
@@ -146,47 +163,16 @@
 }
 
 @media (max-width: 996px) {
+  /* Hide sidebar completely on mobile - should be handled by mobile menu */
   .theme-doc-sidebar-container {
-    margin-right: 0;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    position: relative;
-    height: auto;
-    min-height: fit-content;
-    overflow: visible;
-    width: 100%;
-  }
-  
-  .theme-doc-sidebar-menu {
-    border-radius: var(--ifm-global-radius);
-    overflow: visible;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    min-height: fit-content;
-    padding: 1.25rem 1rem;
+    display: none !important;
   }
 }
 
 @media (max-width: 768px) {
+  /* Sidebar is hidden on mobile, no styling needed */
   .theme-doc-sidebar-container {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  
-  .theme-doc-sidebar-menu {
-    padding: 1rem 0.875rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    border-radius: var(--ifm-button-border-radius);
-  }
-  
-  .menu__link {
-    padding: 0.625rem 0.875rem;
-    font-size: 0.875rem;
-  }
-  
-  .menu__list .menu__list .menu__link {
-    padding: 0.5rem 0.625rem;
-    font-size: 0.8125rem;
+    display: none !important;
   }
 }
 
