@@ -198,9 +198,9 @@ div[class*="docItemContainer"] > article > *:not(.theme-doc-markdown) {
 
 /* Apply background to pagination nav (outside article) */
 div[class*="docItemContainer"] > nav[class*="pagination-nav"] {
-  background: var(--ifm-background-surface-color);
+  background: transparent;
   border-radius: var(--ifm-global-radius);
-  border: 1px solid var(--ifm-color-emphasis-200);
+  border: none;
   padding: 0; /* Pagination has its own padding */
 }
 
