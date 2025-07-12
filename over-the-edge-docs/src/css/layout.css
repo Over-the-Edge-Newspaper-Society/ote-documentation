@@ -1,7 +1,7 @@
 /**
  * Main Layout Structure - IONOS Style Width Consistency
  * Over the Edge Documentation
- * Optimized container widths with IONOS-style proportions
+ * FIXED: Proper centering for all screen widths
  */
 
 /* Base Container System - IONOS Style */
@@ -54,99 +54,168 @@
   }
 }
 
-/* Main documentation layout - IONOS proportions */
-.main-wrapper {
+/* FIXED: Main documentation layout - target all docMainContainer variants */
+main[class*="docMainContainer"] {
   background-color: var(--ifm-background-color);
-  border-radius: var(--ifm-global-radius);
   width: 100%;
   max-width: 1200px; /* IONOS-style container width */
-  margin: 0 auto;
+  margin: 0 auto; /* CRUCIAL: This centers the main content */
   overflow: visible;
   box-sizing: border-box;
+  padding: 0 1rem; /* Add padding for mobile */
 }
 
-/* Navbar container consistency */
-.navbar__inner {
-  background-color: var(--ifm-navbar-background-color);
-  border-radius: var(--ifm-global-radius);
-  box-shadow: var(--ifm-navbar-shadow);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  height: var(--ifm-navbar-height);
-  display: flex;
-  align-items: center;
-  padding: 0 1.5rem;
-  width: 100%;
-  max-width: 1200px; /* Match main content width */
-  margin: 0 auto;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-/* Documentation page layout with IONOS proportions */
+/* FIXED: Documentation page layout with IONOS proportions */
 .theme-doc-page,
-.docPage_node_modules-\@docusaurus-theme-classic-lib-theme-DocPage-Layout-styles-module {
+div[class*="docPage"] {
   background-color: var(--ifm-background-color);
   display: flex;
-  flex-direction: row;
+  flex-direction: row; /* Horizontal layout for desktop */
   overflow: visible;
   width: 100%;
   max-width: 1200px; /* IONOS max width */
-  margin: 0 auto;
-  gap: 1.5rem; /* IONOS-style spacing */
+  margin: 0 auto; /* Center the entire page */
 }
 
-.docMainContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocPage-Layout-styles-module,
-.docMainContainer {
-  display: flex;
-  flex-direction: row;
-  overflow: visible;
-  background-color: var(--ifm-background-color);
-  width: 100%;
-  flex: 1;
-  gap: 1.5rem; /* Consistent spacing */
-}
-
-/* Content area with IONOS proportions */
-.docItemContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module,
-.docItemContainer {
-  flex: 1;
-  min-width: 0;
-  background: var(--ifm-background-color);
-  border-radius: var(--ifm-global-radius);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  display: flex;
-  overflow: hidden;
-  /* IONOS-style content width calculation */
-  max-width: calc(1200px - 250px - 220px - 3rem); /* Container - sidebar - toc - gaps */
-}
-
-/* IONOS-style Grid Layout System */
-.layout-grid {
-  display: grid;
-  /* IONOS proportions: Sidebar, Content, TOC */
-  grid-template-columns: 250px 1fr 220px;
-  gap: 1.5rem;
+/* Docs wrapper with side margins */
+div[class*="docsWrapper"] {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  align-items: start;
-  padding: 0 1rem;
+  padding: 0 2rem; /* Add margins on both sides */
+  box-sizing: border-box;
 }
 
-.layout-grid--no-toc {
-  grid-template-columns: 250px 1fr; /* Sidebar, Content only */
-  max-width: 900px; /* Narrower when no TOC */
+@media (max-width: 1024px) {
+  div[class*="docsWrapper"] {
+    padding: 0 1.5rem;
+  }
 }
 
-.layout-grid--no-sidebar {
-  grid-template-columns: 1fr 220px; /* Content, TOC only */
-  max-width: 900px; /* Narrower when no sidebar */
+@media (max-width: 768px) {
+  div[class*="docsWrapper"] {
+    padding: 0 1rem;
+  }
 }
 
-.layout-grid--content-only {
-  grid-template-columns: 1fr; /* Content only */
-  max-width: 700px; /* IONOS-style readable width */
+@media (max-width: 480px) {
+  div[class*="docsWrapper"] {
+    padding: 0 0.75rem;
+  }
+}
+
+/* Ensure proper horizontal layout on desktop */
+@media (min-width: 997px) {
+  .theme-doc-page,
+  div[class*="docPage"] {
+    flex-direction: row; /* Side-by-side layout for sidebar and content */
+  }
+}
+
+/* Additional fixes to ensure sidebar and content stay within centered layout */
+@media (min-width: 997px) {
+  /* Ensure the main documentation container doesn't exceed bounds */
+  main[class*="docMainContainer"] {
+    box-sizing: border-box;
+    padding: 0 1rem; /* Consistent padding */
+  }
+  
+  /* Ensure proper flex layout for desktop */
+  .theme-doc-page,
+  div[class*="docPage"] {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Ensure sidebar stays within bounds with proper flex */
+  .theme-doc-sidebar-container {
+    flex-shrink: 0;
+    margin-left: 0;
+    margin-right: 1.5rem;
+  }
+  
+  /* Ensure content area takes remaining space properly */
+  div[class*="docItemContainer"] {
+    flex: 1;
+    min-width: 0; /* Prevent overflow */
+    max-width: none; /* Let flex handle the width */
+    margin-left: 0; /* Ensure no negative left margin */
+  }
+}
+
+/**
+ * Targeted Fix for docItemContainer
+ * Remove border, selective background application
+ */
+
+/* Remove border from docItemContainer but keep centering */
+div[class*="docItemContainer"] {
+  flex: 1;
+  min-width: 0;
+  border: none !important; /* Remove the border */
+  box-shadow: none !important; /* Remove shadow too */
+  background: transparent !important; /* Make container transparent */
+  border-radius: 0 !important; /* Remove border radius */
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto; /* Center the content container */
+}
+
+/* Apply background to all elements inside docItemContainer EXCEPT markdown content */
+div[class*="docItemContainer"] > article > *:not(.theme-doc-markdown) {
+  background: var(--ifm-background-surface-color);
+  border-radius: var(--ifm-global-radius);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+/* Apply background to pagination nav (outside article) */
+div[class*="docItemContainer"] > nav[class*="pagination-nav"] {
+  background: var(--ifm-background-surface-color);
+  border-radius: var(--ifm-global-radius);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0; /* Pagination has its own padding */
+}
+
+/* Ensure markdown content has NO background styling */
+.theme-doc-markdown.markdown {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  /* Keep the existing padding for readability */
+}
+
+/* Special styling for breadcrumbs */
+nav[class*="breadcrumbs"] {
+  background: var(--ifm-background-surface-color) !important;
+  border: 1px solid var(--ifm-color-emphasis-200) !important;
+  border-radius: var(--ifm-global-radius) !important;
+  padding: 0.75rem 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Special styling for mobile TOC */
+div[class*="tocCollapsible"] {
+  background: var(--ifm-background-surface-color) !important;
+  border: 1px solid var(--ifm-color-emphasis-200) !important;
+  border-radius: var(--ifm-global-radius) !important;
+  padding: 0.75rem 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Footer styling */
+footer[class*="theme-doc-footer"] {
+  background: var(--ifm-background-surface-color) !important;
+  border: 1px solid var(--ifm-color-emphasis-200) !important;
+  border-radius: var(--ifm-global-radius) !important;
+  padding: 1rem !important;
+  margin-bottom: 1rem !important;
 }
 
 /* Ensure the main layout doesn't interfere and maintains width consistency */
@@ -161,95 +230,89 @@ body {
   background-color: var(--ifm-background-color);
 }
 
-/* IONOS-style responsive breakpoints */
+/* Ensure main centering is preserved for the centering issue */
+main[class*="docMainContainer"] {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* IONOS-style responsive breakpoints - FIXED centering */
 @media (max-width: 1280px) {
-  .main-wrapper {
+  main[class*="docMainContainer"] {
     max-width: 1000px; /* Smaller on medium screens */
   }
   
-  .navbar__inner {
+  .theme-doc-page,
+  div[class*="docPage"] {
     max-width: 1000px;
   }
   
-  .layout-grid {
-    max-width: 1000px;
-    grid-template-columns: 230px 1fr 200px; /* Slightly smaller proportions */
-  }
-  
-  .docItemContainer,
-  .docItemContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module {
-    max-width: calc(1000px - 230px - 200px - 3rem);
+  div[class*="docItemContainer"] {
+    max-width: 100%;
   }
 }
 
 @media (max-width: 1024px) {
-  .main-wrapper {
-    max-width: 768px;
-  }
-  
-  .navbar__inner {
-    max-width: 768px;
-  }
-  
-  .layout-grid {
-    max-width: 768px;
-    grid-template-columns: 1fr; /* Single column on tablets */
-    gap: 1rem;
-    padding: 0 0.75rem;
-  }
-  
-  .docItemContainer,
-  .docItemContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module {
+  main[class*="docMainContainer"] {
     max-width: 100%;
-    flex-direction: column;
+    padding: 0 0.75rem; /* Reduced padding for tablets */
+  }
+  
+  .theme-doc-page,
+  div[class*="docPage"] {
+    max-width: 100%;
+  }
+  
+  div[class*="docItemContainer"] {
+    max-width: 100%;
+    margin: 0; /* Remove auto margins on smaller screens */
   }
 }
 
+@media (max-width: 996px) {
+  .theme-doc-page,
+  div[class*="docPage"] {
+    flex-direction: column; /* Stack vertically on mobile/tablet */
+  }
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .main-wrapper {
+  main[class*="docMainContainer"] {
     max-width: 100%;
-    margin: 0 0.75rem;
-  }
-  
-  .navbar__inner {
-    max-width: 100%;
-    margin: 0 0.75rem;
-    padding: 0 1rem;
-  }
-  
-  .layout-grid {
-    padding: 0 0.5rem;
+    margin: 0 auto; /* Keep centering */
+    padding: 0 0.75rem;
   }
   
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  
+  div[class*="docItemContainer"] {
+    border-radius: var(--ifm-button-border-radius);
+    margin: 0;
+  }
+  
+  /* Reduce padding on mobile for all background elements */
+  div[class*="docItemContainer"] > article > *:not(.theme-doc-markdown),
+  nav[class*="breadcrumbs"],
+  div[class*="tocCollapsible"],
+  footer[class*="theme-doc-footer"] {
+    padding: 0.75rem !important;
+    margin-bottom: 0.75rem !important;
+  }
 }
 
 @media (max-width: 640px) {
-  .main-wrapper {
-    margin: 0 0.5rem;
-  }
-  
-  .navbar__inner {
-    margin: 0 0.5rem;
+  main[class*="docMainContainer"] {
+    padding: 0 0.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .main-wrapper {
-    margin: 0 0.25rem;
-  }
-  
-  .navbar__inner {
-    margin: 0 0.25rem;
-    padding: 0 0.75rem;
-    height: 60px;
-    border-radius: var(--ifm-button-border-radius);
-  }
-  
-  .layout-grid {
+  main[class*="docMainContainer"] {
     padding: 0 0.25rem;
   }
   
@@ -257,4 +320,15 @@ body {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
   }
+  
+  /* Further reduce on very small screens */
+  div[class*="docItemContainer"] > article > *:not(.theme-doc-markdown),
+  nav[class*="breadcrumbs"],
+  div[class*="tocCollapsible"],
+  footer[class*="theme-doc-footer"] {
+    padding: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    border-radius: var(--ifm-button-border-radius) !important;
+  }
 }
+
