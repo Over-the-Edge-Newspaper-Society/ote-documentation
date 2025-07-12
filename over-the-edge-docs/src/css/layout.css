@@ -16,19 +16,19 @@
 /* Responsive Container Widths - IONOS Style */
 @media (min-width: 480px) {
   .container {
-    max-width: 480px;
+    max-width: 480px; /* Restore reasonable container widths */
   }
 }
 
 @media (min-width: 640px) {
   .container {
-    max-width: 640px;
+    max-width: 640px; /* Restore reasonable container widths */
   }
 }
 
 @media (min-width: 768px) {
   .container {
-    max-width: 768px;
+    max-width: 768px; /* Restore reasonable container widths */
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
@@ -36,7 +36,7 @@
 
 @media (min-width: 1024px) {
   .container {
-    max-width: 1024px;
+    max-width: 1024px; /* Restore reasonable container widths */
     padding-left: 2rem;
     padding-right: 2rem;
   }
@@ -44,13 +44,13 @@
 
 @media (min-width: 1280px) {
   .container {
-    max-width: 1200px; /* IONOS-style max width */
+    max-width: 1200px; /* Reasonable max-width for general containers */
   }
 }
 
 @media (min-width: 1536px) {
   .container {
-    max-width: 1200px; /* Keep consistent max width */
+    max-width: 1200px; /* Reasonable max-width for general containers */
   }
 }
 
@@ -58,11 +58,10 @@
 main[class*="docMainContainer"] {
   background-color: var(--ifm-background-color);
   width: 100%;
-  max-width: 1200px; /* IONOS-style container width */
+  max-width: 1400px; /* Set a reasonable max-width smaller than full screen */
   margin: 0 auto; /* CRUCIAL: This centers the main content */
   overflow: visible;
   box-sizing: border-box;
-  padding: 0 1rem; /* Add padding for mobile */
 }
 
 /* FIXED: Documentation page layout with IONOS proportions */
@@ -73,14 +72,15 @@ div[class*="docPage"] {
   flex-direction: row; /* Horizontal layout for desktop */
   overflow: visible;
   width: 100%;
-  max-width: 1200px; /* IONOS max width */
+  max-width: 1400px; /* Set a reasonable max-width smaller than full screen */
   margin: 0 auto; /* Center the entire page */
+  box-sizing: border-box;
 }
 
 /* Docs wrapper with side margins */
 div[class*="docsWrapper"] {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px; /* Set a reasonable max-width smaller than full screen */
   margin: 0 auto;
   padding: 0 2rem; /* Add margins on both sides */
   box-sizing: border-box;
@@ -109,12 +109,14 @@ div[class*="docsWrapper"] {
   .theme-doc-page,
   div[class*="docPage"] {
     flex-direction: row; /* Side-by-side layout for sidebar and content */
+    max-width: 1400px; /* Set max-width for desktop layout */
+    padding: 0 1rem; /* Add some padding */
   }
   
   /* Ensure the main documentation container doesn't exceed bounds */
   main[class*="docMainContainer"] {
     box-sizing: border-box;
-    padding: 0 1rem; /* Consistent padding */
+    max-width: 1400px; /* Set max-width for desktop layout */
   }
   
   /* Ensure proper flex layout for desktop */
@@ -126,14 +128,15 @@ div[class*="docsWrapper"] {
     justify-content: flex-start;
     width: 100%;
     box-sizing: border-box;
+    gap: 0; /* Remove any gaps that might cause spacing issues */
   }
   
   /* Ensure sidebar stays within bounds with proper flex */
   .theme-doc-sidebar-container {
     display: flex !important; /* Force show on desktop */
     flex-shrink: 0;
-    margin-left: 0;
-    margin-right: 1.5rem;
+    flex-basis: 250px; /* Explicit flex-basis for consistent width */
+    margin-right: 0; /* Remove right margin for right alignment */
   }
   
   /* Ensure content area takes remaining space properly */
@@ -252,19 +255,55 @@ body {
 /* Ensure main centering is preserved for the centering issue */
 main[class*="docMainContainer"] {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1400px; /* Set a reasonable max-width smaller than full screen */
   width: 100%;
+}
+
+/* COMPREHENSIVE OVERRIDE: Prevent sidebar clipping while maintaining container width */
+html,
+body,
+#__docusaurus,
+.main-wrapper {
+  width: 100% !important;
+  max-width: none !important;
+  overflow-x: visible !important;
+}
+
+/* Set reasonable max-width for content containers */
+main,
+.theme-doc-page,
+div[class*="docPage"],
+main[class*="docMainContainer"],
+div[class*="docsWrapper"] {
+  width: 100% !important;
+  max-width: 1400px !important; /* Reasonable max-width smaller than full screen */
+  box-sizing: border-box !important;
+  margin: 0 auto !important; /* Center the containers */
+}
+
+/* Force sidebar to be visible and properly positioned */
+@media (min-width: 997px) {
+  .theme-doc-sidebar-container {
+    display: flex !important;
+    position: sticky !important;
+    width: 250px !important;
+    min-width: 250px !important;
+    max-width: 250px !important;
+    flex-shrink: 0 !important;
+    margin-right: 0 !important; /* Remove right margin for right alignment */
+    overflow: visible !important;
+  }
 }
 
 /* IONOS-style responsive breakpoints - FIXED centering */
 @media (max-width: 1280px) {
   main[class*="docMainContainer"] {
-    max-width: 1000px; /* Smaller on medium screens */
+    max-width: 1200px; /* Reduce max-width for smaller screens */
   }
   
   .theme-doc-page,
   div[class*="docPage"] {
-    max-width: 1000px;
+    max-width: 1200px; /* Reduce max-width for smaller screens */
   }
   
   div[class*="docItemContainer"] {

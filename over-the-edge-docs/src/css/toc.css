@@ -6,7 +6,7 @@
 /* Table of Contents - IONOS Style */
 .theme-doc-toc-desktop {
   border-left: none;
-  margin-left: 0;
+  margin-left: 0.75rem; /* Match sidebar's right margin for symmetrical spacing */
   padding: 1.5rem 1rem; /* IONOS-style padding */
   position: sticky;
   top: calc(var(--ifm-navbar-height, 70px) + 1rem);

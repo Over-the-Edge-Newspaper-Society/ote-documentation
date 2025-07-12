@@ -29,9 +29,9 @@
   border: 1px solid var(--ifm-color-emphasis-200);
   display: flex;
   overflow: hidden;
-  /* IONOS-style content calculations */
+  /* IONOS-style content calculations - use flex instead of fixed width */
   width: 100%;
-  max-width: calc(1200px - 250px - 220px - 3rem); /* Total - sidebar - toc - gaps */
+  max-width: none; /* Let flex handle the width distribution */
   margin: 0; /* Remove auto margins for precise control */
 }
 
@@ -179,7 +179,7 @@
 @media (max-width: 1280px) {
   .docItemContainer,
   .docItemContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module {
-    max-width: calc(1000px - 230px - 200px - 3rem); /* Adjusted for medium screens */
+    max-width: calc(1100px - 230px - 200px - 3rem); /* Adjusted for medium screens with increased container */
   }
   
   .theme-doc-markdown {
