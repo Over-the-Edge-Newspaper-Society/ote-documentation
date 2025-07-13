@@ -1,0 +1,78 @@
+/**
+ * Sidebar Styles
+ * Over the Edge Documentation - Converted for Starlight
+ */
+
+.sl-sidebar {
+  width: var(--ionos-sidebar-width);
+  border-right: 1px solid var(--ote-color-emphasis-200);
+  background: var(--ote-background-color);
+  
+  .sl-sidebar-content {
+    padding: var(--ionos-space-lg);
+  }
+}
+
+/* Sidebar navigation */
+.sl-sidebar nav {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    margin-bottom: var(--ionos-space-xs);
+  }
+  
+  a {
+    display: block;
+    padding: var(--ionos-space-sm) var(--ionos-space-md);
+    color: var(--ote-color-emphasis-700);
+    text-decoration: none;
+    border-radius: var(--ote-global-radius);
+    transition: all 0.2s ease;
+    font-weight: 500;
+    
+    &:hover {
+      background-color: var(--ote-color-emphasis-100);
+      color: var(--ote-brand-green-medium);
+    }
+    
+    &.active {
+      background-color: var(--ote-brand-green-light);
+      color: var(--ote-brand-green-dark);
+      font-weight: 600;
+    }
+  }
+}
+
+/* Sidebar sections */
+.sl-sidebar-section {
+  margin-bottom: var(--ionos-space-xl);
+  
+  .section-title {
+    font-weight: 600;
+    color: var(--ote-color-emphasis-800);
+    margin-bottom: var(--ionos-space-md);
+    font-size: var(--ionos-text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Mobile sidebar */
+@media (max-width: 768px) {
+  .sl-sidebar {
+    position: fixed;
+    top: var(--ote-navbar-height);
+    left: -100%;
+    height: calc(100vh - var(--ote-navbar-height));
+    z-index: var(--ionos-z-sidebar);
+    transition: left 0.3s ease;
+    
+    &.open {
+      left: 0;
+    }
+  }
+}

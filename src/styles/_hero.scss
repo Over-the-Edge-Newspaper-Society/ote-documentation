@@ -1,0 +1,37 @@
+/**
+ * Hero Section Styles
+ * Over the Edge Documentation - Converted for Starlight
+ */
+
+.hero-section {
+  background: linear-gradient(135deg, var(--ote-brand-green-dark), var(--ote-brand-green-medium));
+  color: white;
+  padding: var(--ionos-space-3xl) 0;
+  text-align: center;
+  
+  .hero-content {
+    max-width: var(--ionos-container-lg);
+    margin: 0 auto;
+    padding: 0 var(--ionos-space-lg);
+  }
+  
+  .hero-title {
+    font-size: var(--ionos-text-4xl);
+    font-weight: 700;
+    margin-bottom: var(--ionos-space-lg);
+    letter-spacing: -0.025em;
+  }
+  
+  .hero-subtitle {
+    font-size: var(--ionos-text-xl);
+    opacity: 0.9;
+    margin-bottom: var(--ionos-space-2xl);
+  }
+  
+  .hero-actions {
+    display: flex;
+    gap: var(--ionos-space-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

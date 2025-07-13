@@ -1,0 +1,103 @@
+---
+import Search from '@astrojs/starlight/components/Search.astro';
+import SocialIcons from '@astrojs/starlight/components/SocialIcons.astro';
+import ThemeSelect from '@astrojs/starlight/components/ThemeSelect.astro';
+
+const baseUrl = import.meta.env.BASE_URL;
+const logoPath = baseUrl.endsWith('/') ? baseUrl + 'img/ote-logo.svg' : baseUrl + '/img/ote-logo.svg';
+---
+
+<header class="ote-header">
+  <div class="header-content">
+    <div class="brand">
+      <img src={logoPath} alt="Over the Edge" />
+      <span class="title">Over the Edge</span>
+    </div>
+    
+    <nav class="nav-links">
+      <a href={baseUrl + "quickstart/"}>Quick Start</a>
+      <a href={baseUrl + "style-guide/"}>Style Guide</a>
+      <a href={baseUrl + "editorial-process/"}>Editorial</a>
+      <a href={baseUrl + "resources/"}>Resources</a>
+    </nav>
+    
+    <div class="header-tools">
+      <Search />
+      <SocialIcons />
+      <ThemeSelect />
+    </div>
+  </div>
+</header>
+
+<style>
+.ote-header {
+  background: var(--sl-color-bg-nav);
+  border-bottom: 1px solid var(--sl-color-hairline);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: var(--ionos-z-navbar);
+}
+
+.header-content {
+  max-width: var(--ionos-container-max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  
+  img {
+    height: 36px;
+    width: auto;
+  }
+  
+  .title {
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: var(--sl-color-text);
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  
+  a {
+    color: var(--sl-color-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    
+    &:hover {
+      color: var(--sl-color-accent);
+    }
+  }
+}
+
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .header-content {
+    padding: 0 0.75rem;
+  }
+  
+  .brand .title {
+    display: none;
+  }
+}
+</style>

@@ -1,0 +1,109 @@
+---
+// Footer component for Over the Edge documentation
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<footer class="ote-footer">
+  <div class="footer-content">
+    <div class="footer-links">
+      <div class="footer-section">
+        <h3>Editorial</h3>
+        <ul>
+          <li><a href={baseUrl + "style-guide/"}>Style Guide</a></li>
+          <li><a href={baseUrl + "editorial-process/"}>Editorial Process</a></li>
+          <li><a href={baseUrl + "editorial-process/story-workflow/"}>Story Workflow</a></li>
+          <li><a href={baseUrl + "editorial-process/review-process/"}>Review Process</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href={baseUrl + "resources/templates/"}>Templates</a></li>
+          <li><a href={baseUrl + "resources/tools/"}>Tools</a></li>
+          <li><a href={baseUrl + "resources/contacts/"}>Contact</a></li>
+          <li><a href="mailto:editor@overtheedge.org">Email Editor</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Submission</h3>
+        <ul>
+          <li><a href={baseUrl + "submission-process/"}>Overview</a></li>
+          <li><a href={baseUrl + "submission-process/email-drafter/"}>Email Drafter</a></li>
+          <li><a href={baseUrl + "submission-process/forms-receiver/"}>Forms</a></li>
+          <li><a href={baseUrl + "submission-process/payment-calculator/"}>Payment</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Community</h3>
+        <ul>
+          <li><a href="https://github.com/Over-the-Edge-Newspaper-Society/ote-documentation">GitHub</a></li>
+          <li><a href={baseUrl + "quickstart/"}>Quick Start</a></li>
+          <li><a href={baseUrl + "intro/"}>Documentation</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {new Date().getFullYear()} Over the Edge Newspaper. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+.ote-footer {
+  background: var(--ote-color-emphasis-900);
+  color: var(--ote-color-emphasis-300);
+  padding: 3rem 0 1.5rem;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: var(--ionos-container-max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+  color: var(--ote-color-emphasis-300);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-section a:hover {
+  color: var(--ote-brand-green-light);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--ote-color-emphasis-700);
+  padding-top: 1.5rem;
+  text-align: center;
+  color: var(--ote-color-emphasis-400);
+}
+</style>
