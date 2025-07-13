@@ -62,7 +62,7 @@ nav[class*="menu_"] {
 /* Remove extra spacing from Docusaurus menu container */
 nav[class*="docSidebarContainer_"] {
   padding-top: 0 !important;
-  border-right-width: 0 !important; /* Remove right border */
+  border-right: none !important; /* Remove right border */
 }
 
 /* Menu Category Headers */
