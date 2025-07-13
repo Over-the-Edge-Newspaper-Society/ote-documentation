@@ -28,23 +28,18 @@
 
 @media (min-width: 768px) {
   .container {
-    max-width: 768px; /* Restore reasonable container widths */
-    padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .container {
-    max-width: 1024px; /* Restore reasonable container widths */
-    padding-left: 2rem;
     padding-right: 2rem;
   }
 }
 
 @media (min-width: 1280px) {
   .container {
-    max-width: 1200px; /* Reasonable max-width for general containers */
   }
 }
 

@@ -9,8 +9,7 @@
   margin-left: 0.75rem; /* Match sidebar's right margin for symmetrical spacing */
   padding: 1.5rem 1rem; /* IONOS-style padding */
   position: sticky;
-  top: calc(var(--ifm-navbar-height, 70px) + 1rem);
-  height: calc(100vh - var(--ifm-navbar-height, 70px) - 2rem);
+  top: calc(var(--ifm-navbar-height, 70px) + 2rem);
   overflow-y: auto;
   align-self: flex-start;
   flex-shrink: 0;
