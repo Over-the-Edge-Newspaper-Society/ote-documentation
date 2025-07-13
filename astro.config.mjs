@@ -4,7 +4,7 @@ import starlightClientMermaid from '@pasqal-io/starlight-client-mermaid';
 
 export default defineConfig({
   site: 'https://over-the-edge-newspaper-society.github.io',
-  base: '/ote-documentation/',
+  base: '/over-the-edge-docs/',
   integrations: [
     starlight({
       plugins: [starlightClientMermaid()],

@@ -22,7 +22,7 @@ npm install
 npm run dev
 ```
 
-This command starts a local development server at `http://localhost:4321/ote-documentation/`. Most changes are reflected live without having to restart the server.
+This command starts a local development server at `http://localhost:4321/over-the-edge-docs/`. Most changes are reflected live without having to restart the server.
 
 ## Build
 
