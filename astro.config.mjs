@@ -71,10 +71,6 @@ export default defineConfig({
       customCss: [
         './src/styles/custom.scss',
       ],
-      components: {
-        Header: './src/components/Header.astro',
-        Footer: './src/components/Footer.astro',
-      },
       favicon: '/favicon.ico',
       head: [
         {

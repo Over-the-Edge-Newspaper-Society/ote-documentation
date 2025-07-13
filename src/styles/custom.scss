@@ -1,81 +1,13 @@
-/* 
- * Custom Starlight Styles for Over the Edge Documentation
- * Migrated from Docusaurus with IONOS-style proportions
- */
-
-/* Import variables first */
-@use './variables';
-
-/* Import component styles */
-@use './base';
-@use './layout';
-@use './navbar';
-@use './sidebar';
-@use './content';
-@use './hero';
-@use './footer';
-@use './components';
-@use './utilities';
-
-/* Starlight-specific overrides */
+/* Minimal OTE color overrides for Tauri-like design */
 :root {
-  /* Map OTE brand colors to Starlight variables */
-  --sl-hue-accent: 158; /* Green hue for OTE brand */
-  --sl-color-accent-low: var(--ote-brand-green-dark);
-  --sl-color-accent: var(--ote-brand-green-medium);
-  --sl-color-accent-high: var(--ote-brand-green-light);
+  /* Your OTE brand colors mapped to Starlight's system */
+  --sl-hue-accent: 158; /* Green hue */
+  --sl-color-accent-low: #2c6753;   /* your dark green */
+  --sl-color-accent: #44a57f;       /* your medium green */
+  --sl-color-accent-high: #7addb3;  /* your light green */
   
-  /* Override Starlight typography */
-  --sl-text-base: 16px;
-  --sl-line-height: 1.6;
-  
-  /* Override Starlight layout */
-  --sl-nav-height: 70px;
-  --sl-sidebar-width: 250px;
-  --sl-content-max-width: 1200px;
+  /* Optional: fine-tune if needed */
+  --sl-color-text-accent: #44a57f;
 }
 
-/* Starlight component customizations */
-.sl-markdown-content {
-  /* Apply your existing content styles */
-  line-height: 1.6;
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
-    letter-spacing: -0.0125em;
-  }
-  
-  h2 {
-    position: relative;
-    padding-bottom: 1rem;
-    
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 60px;
-      height: 3px;
-      background: var(--sl-color-accent);
-      border-radius: 2px;
-    }
-  }
-}
-
-/* Header/Navbar customizations */
-.sl-nav {
-  background: var(--sl-color-bg-nav);
-  border-bottom: 1px solid var(--sl-color-hairline);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-}
-
-/* Sidebar customizations */
-.sl-sidebar {
-  border-right: 1px solid var(--sl-color-hairline);
-}
-
-/* Footer customizations */
-.sl-footer {
-  background: var(--sl-color-bg-nav);
-  border-top: 1px solid var(--sl-color-hairline);
-}
+/* Remove any other custom overrides unless absolutely necessary */
