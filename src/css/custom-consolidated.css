@@ -1,0 +1,547 @@
+/**
+ * Consolidated custom CSS for Docusaurus
+ * This file contains all custom styles to ensure consistent loading order
+ */
+
+/* ==========================================================================
+   CSS Variables (from variables.css)
+   ========================================================================== */
+
+:root {
+  /* Brand colors */
+  --ote-primary: #3b82c3;
+  --ote-primary-dark: #2563eb;
+  --ote-secondary: #64748b;
+  --ote-accent: #f59e0b;
+  
+  /* Semantic colors */
+  --ote-success: #10b981;
+  --ote-warning: #f59e0b;
+  --ote-error: #ef4444;
+  --ote-info: #3b82f6;
+  
+  /* Text colors */
+  --ote-text-primary: #1e293b;
+  --ote-text-secondary: #64748b;
+  --ote-text-muted: #94a3b8;
+  
+  /* Background colors */
+  --ote-bg-primary: #ffffff;
+  --ote-bg-secondary: #f8fafc;
+  --ote-bg-muted: #f1f5f9;
+  
+  /* Border colors */
+  --ote-border-light: #e2e8f0;
+  --ote-border-medium: #cbd5e1;
+  --ote-border-dark: #94a3b8;
+  
+  /* Spacing */
+  --ote-spacing-xs: 0.25rem;
+  --ote-spacing-sm: 0.5rem;
+  --ote-spacing-md: 1rem;
+  --ote-spacing-lg: 1.5rem;
+  --ote-spacing-xl: 2rem;
+  --ote-spacing-2xl: 3rem;
+  
+  /* Typography */
+  --ote-font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --ote-font-family-mono: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  
+  /* Shadows */
+  --ote-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --ote-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --ote-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  
+  /* Border radius */
+  --ote-radius-sm: 0.125rem;
+  --ote-radius-md: 0.375rem;
+  --ote-radius-lg: 0.5rem;
+  --ote-radius-xl: 0.75rem;
+  
+  /* Transitions */
+  --ote-transition-fast: 150ms ease-in-out;
+  --ote-transition-normal: 250ms ease-in-out;
+  --ote-transition-slow: 350ms ease-in-out;
+}
+
+[data-theme='dark'] {
+  /* Dark mode overrides */
+  --ote-text-primary: #f1f5f9;
+  --ote-text-secondary: #cbd5e1;
+  --ote-text-muted: #94a3b8;
+  
+  --ote-bg-primary: #0f172a;
+  --ote-bg-secondary: #1e293b;
+  --ote-bg-muted: #334155;
+  
+  --ote-border-light: #334155;
+  --ote-border-medium: #475569;
+  --ote-border-dark: #64748b;
+}
+
+/* ==========================================================================
+   Base Styles (from custom.css imports)
+   ========================================================================== */
+
+/* You can override the default Docusaurus CSS variables here. */
+/* See https://docusaurus.io/docs/styling-layout for more details. */
+
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* ==========================================================================
+   Hero Section Styles (from hero.css)
+   ========================================================================== */
+
+.hero-banner {
+  background: linear-gradient(135deg, var(--ote-primary) 0%, var(--ote-primary-dark) 100%);
+  color: white;
+  padding: var(--ote-spacing-2xl) var(--ote-spacing-lg);
+  text-align: center;
+  border-radius: var(--ote-radius-lg);
+  margin-bottom: var(--ote-spacing-xl);
+  box-shadow: var(--ote-shadow-lg);
+}
+
+.hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: var(--ote-spacing-md);
+  color: white;
+}
+
+.hero__subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: var(--ote-spacing-xl);
+  opacity: 0.9;
+  color: white;
+}
+
+.hero__buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--ote-spacing-md);
+  flex-wrap: wrap;
+}
+
+.hero__buttons .button {
+  padding: var(--ote-spacing-md) var(--ote-spacing-xl);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: var(--ote-radius-md);
+  transition: all var(--ote-transition-normal);
+  text-decoration: none;
+  border: 2px solid transparent;
+}
+
+.hero__buttons .button--secondary {
+  background-color: white;
+  color: var(--ote-primary);
+  border-color: white;
+}
+
+.hero__buttons .button--secondary:hover {
+  background-color: var(--ote-bg-secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--ote-shadow-md);
+}
+
+/* ==========================================================================
+   Component Styles (from components.css)
+   ========================================================================== */
+
+/* Card Enhancements */
+.card {
+  border: 1px solid var(--ote-border-light);
+  border-radius: var(--ote-radius-lg);
+  transition: all var(--ote-transition-normal);
+  background: var(--ote-bg-primary);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--ote-shadow-lg);
+  border-color: var(--ote-primary);
+}
+
+.card__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ote-spacing-lg);
+  background: var(--ote-bg-secondary);
+  border-top-left-radius: var(--ote-radius-lg);
+  border-top-right-radius: var(--ote-radius-lg);
+}
+
+.card__body {
+  padding: var(--ote-spacing-lg);
+  flex-grow: 1;
+}
+
+.card__body h3 {
+  color: var(--ote-text-primary);
+  margin-bottom: var(--ote-spacing-md);
+  font-weight: 600;
+}
+
+.card__body p {
+  color: var(--ote-text-secondary);
+  line-height: 1.6;
+}
+
+.card__footer {
+  padding: 0 var(--ote-spacing-lg) var(--ote-spacing-lg);
+  margin-top: auto;
+}
+
+/* Button Enhancements */
+.button {
+  border-radius: var(--ote-radius-md);
+  font-weight: 600;
+  transition: all var(--ote-transition-normal);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ote-spacing-sm);
+}
+
+.button--primary {
+  background-color: var(--ote-primary);
+  border-color: var(--ote-primary);
+  color: white;
+}
+
+.button--primary:hover {
+  background-color: var(--ote-primary-dark);
+  border-color: var(--ote-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--ote-shadow-md);
+}
+
+.button--outline {
+  background-color: transparent;
+  border: 2px solid var(--ote-primary);
+  color: var(--ote-primary);
+}
+
+.button--outline:hover {
+  background-color: var(--ote-primary);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: var(--ote-shadow-md);
+}
+
+.button--secondary {
+  background-color: var(--ote-secondary);
+  border-color: var(--ote-secondary);
+  color: white;
+}
+
+.button--secondary:hover {
+  background-color: var(--ote-text-secondary);
+  border-color: var(--ote-text-secondary);
+  transform: translateY(-1px);
+  box-shadow: var(--ote-shadow-md);
+}
+
+/* Grid Enhancements */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 calc(-1 * var(--ote-spacing-md));
+}
+
+.col {
+  padding: 0 var(--ote-spacing-md);
+  margin-bottom: var(--ote-spacing-lg);
+}
+
+.col--4 {
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+
+.col--6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+@media (max-width: 768px) {
+  .col--4,
+  .col--6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .hero__title {
+    font-size: 2rem;
+  }
+  
+  .hero__subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .hero__buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero__buttons .button {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Navigation Enhancements */
+.navbar {
+  box-shadow: var(--ote-shadow-sm);
+  border-bottom: 1px solid var(--ote-border-light);
+}
+
+.navbar__brand {
+  font-weight: 700;
+  color: var(--ote-primary) !important;
+}
+
+.navbar__item {
+  font-weight: 500;
+}
+
+.navbar__link:hover {
+  color: var(--ote-primary) !important;
+}
+
+/* Content Enhancements */
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  color: var(--ote-text-primary);
+  font-weight: 600;
+}
+
+.markdown h1 {
+  border-bottom: 2px solid var(--ote-primary);
+  padding-bottom: var(--ote-spacing-sm);
+}
+
+.markdown h2 {
+  border-bottom: 1px solid var(--ote-border-light);
+  padding-bottom: var(--ote-spacing-xs);
+}
+
+/* Code block enhancements */
+.prism-code {
+  border-radius: var(--ote-radius-md);
+  box-shadow: var(--ote-shadow-sm);
+}
+
+/* Admonition enhancements */
+.alert {
+  border-radius: var(--ote-radius-md);
+  border-left-width: 4px;
+  box-shadow: var(--ote-shadow-sm);
+}
+
+.alert--info {
+  border-left-color: var(--ote-info);
+}
+
+.alert--warning {
+  border-left-color: var(--ote-warning);
+}
+
+.alert--danger {
+  border-left-color: var(--ote-error);
+}
+
+.alert--success {
+  border-left-color: var(--ote-success);
+}
+
+/* Table enhancements */
+.markdown table {
+  border-radius: var(--ote-radius-md);
+  overflow: hidden;
+  box-shadow: var(--ote-shadow-sm);
+}
+
+.markdown table th {
+  background-color: var(--ote-bg-secondary);
+  color: var(--ote-text-primary);
+  font-weight: 600;
+}
+
+.markdown table tr:nth-child(even) {
+  background-color: var(--ote-bg-secondary);
+}
+
+/* Footer enhancements */
+.footer {
+  background-color: var(--ote-bg-secondary);
+  border-top: 1px solid var(--ote-border-light);
+}
+
+.footer__title {
+  color: var(--ote-text-primary);
+  font-weight: 600;
+}
+
+.footer__item {
+  color: var(--ote-text-secondary);
+}
+
+.footer__item:hover {
+  color: var(--ote-primary);
+}
+
+/* Sidebar enhancements */
+.menu__link {
+  border-radius: var(--ote-radius-sm);
+  transition: all var(--ote-transition-fast);
+}
+
+.menu__link:hover {
+  background-color: var(--ote-bg-secondary);
+  color: var(--ote-primary);
+}
+
+.menu__link--active {
+  background-color: var(--ote-primary);
+  color: white;
+}
+
+.menu__link--active:hover {
+  background-color: var(--ote-primary-dark);
+}
+
+/* Search enhancements */
+.DocSearch-Button {
+  border-radius: var(--ote-radius-md);
+  transition: all var(--ote-transition-fast);
+}
+
+.DocSearch-Button:hover {
+  box-shadow: var(--ote-shadow-sm);
+}
+
+/* Pagination enhancements */
+.pagination-nav__link {
+  border-radius: var(--ote-radius-md);
+  border: 1px solid var(--ote-border-light);
+  transition: all var(--ote-transition-normal);
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--ote-primary);
+  box-shadow: var(--ote-shadow-sm);
+}
+
+/* Breadcrumb enhancements */
+.breadcrumbs {
+  margin-bottom: var(--ote-spacing-lg);
+}
+
+.breadcrumbs__item--active .breadcrumbs__link {
+  color: var(--ote-primary);
+  font-weight: 600;
+}
+
+/* TOC enhancements */
+.table-of-contents {
+  border-left: 2px solid var(--ote-border-light);
+  padding-left: var(--ote-spacing-md);
+}
+
+.table-of-contents__link {
+  color: var(--ote-text-secondary);
+  transition: color var(--ote-transition-fast);
+}
+
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: var(--ote-primary);
+  font-weight: 500;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: var(--ote-spacing-xs); }
+.mt-2 { margin-top: var(--ote-spacing-sm); }
+.mt-3 { margin-top: var(--ote-spacing-md); }
+.mt-4 { margin-top: var(--ote-spacing-lg); }
+.mt-5 { margin-top: var(--ote-spacing-xl); }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--ote-spacing-xs); }
+.mb-2 { margin-bottom: var(--ote-spacing-sm); }
+.mb-3 { margin-bottom: var(--ote-spacing-md); }
+.mb-4 { margin-bottom: var(--ote-spacing-lg); }
+.mb-5 { margin-bottom: var(--ote-spacing-xl); }
+
+.p-0 { padding: 0; }
+.p-1 { padding: var(--ote-spacing-xs); }
+.p-2 { padding: var(--ote-spacing-sm); }
+.p-3 { padding: var(--ote-spacing-md); }
+.p-4 { padding: var(--ote-spacing-lg); }
+.p-5 { padding: var(--ote-spacing-xl); }
+
+/* Responsive utilities */
+@media (max-width: 576px) {
+  .hidden-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 577px) {
+  .visible-mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hidden-tablet {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .visible-tablet {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .hidden-desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 993px) {
+  .visible-desktop {
+    display: none;
+  }
+}

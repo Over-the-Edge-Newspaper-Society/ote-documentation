@@ -21,11 +21,11 @@ const config: Config = {
   // Set the production url of your site here
   url: 'https://over-the-edge-newspaper-society.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: '/over-the-edge-docs/',
+  baseUrl: '/ote-documentation/',
 
   // GitHub pages deployment config.
   organizationName: 'Over-the-Edge-Newspaper-Society', // Your actual GitHub org name
-  projectName: 'over-the-edge-docs', // Your actual repo name
+  projectName: 'ote-documentation', // Your actual repo name
   deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'throw',
@@ -49,11 +49,23 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/Over-the-Edge-Newspaper-Society/over-the-edge-docs/tree/main/',
+            'https://github.com/Over-the-Edge-Newspaper-Society/ote-documentation/tree/main/',
         },
         blog: false, // Disable blog in docs-only mode
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: [
+            './src/css/variables.css',      // Variables first
+            './src/css/base.css',          // Base styles
+            './src/css/navbar.css',        // Navbar
+            './src/css/layout.css',        // Layout
+            './src/css/sidebar.css',       // Sidebar
+            './src/css/toc.css',           // Table of contents
+            './src/css/content.css',       // Content styles
+            './src/css/hero.css',          // Hero section
+            './src/css/footer.css',        // Footer
+            './src/css/components.css',    // UI components
+            './src/css/utilities.css',     // Utilities last
+          ],
         },
       } satisfies Preset.Options,
     ],
@@ -103,7 +115,7 @@ const config: Config = {
           label: 'Resources',
         },
         {
-          href: 'https://github.com/Over-the-Edge-Newspaper-Society/over-the-edge-docs',
+          href: 'https://github.com/Over-the-Edge-Newspaper-Society/ote-documentation',
           label: 'GitHub',
           position: 'right',
         },
