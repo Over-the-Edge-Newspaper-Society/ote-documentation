@@ -8,16 +8,15 @@
   background: transparent;
   border-right: none;
   position: sticky;
-  top: calc(var(--ifm-navbar-height, 70px) + var(--ote-sticky-offset, 1rem));
   height: auto;
   min-height: fit-content;
+  max-height: calc(100vh - var(--ifm-navbar-height, 70px) - 2rem); /* Limit height to viewport */
   overflow: visible;
   align-self: flex-start;
   flex-shrink: 0;
   margin-right: 0; /* Remove right margin for right alignment */
-  margin-bottom: 0; /* Remove bottom margin for perfect alignment */
-  margin-top: 1rem; /* Additional offset to align with breadcrumbs */
-  z-index: 1;
+  margin-top: 0; /* Fix any negative margin issues */
+  z-index: 10; /* Higher z-index to ensure it stays on top */
   padding: 0;
   /* IONOS-style sidebar width */
   width: 250px;
@@ -26,6 +25,7 @@
   display: flex;
   justify-content: flex-end; /* Right-align content within sidebar container */
   box-sizing: border-box; /* Ensure padding is included in width calculations */
+  margin-bottom: 0rem;
 }
 
 /* Sidebar Inner Container - IONOS Style */
@@ -49,10 +49,8 @@
 
 /* Remove extra padding from Docusaurus sidebar wrapper */
 div[class*="sidebar_"] {
-  padding-left: 2rem !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
   overflow: visible !important; /* Ensure parent doesn't clip sticky positioning */
+  padding-top: 1rem;
 }
 
 /* Remove extra spacing from Docusaurus menu container */
@@ -63,7 +61,6 @@ nav[class*="menu_"] {
 
 /* Remove extra spacing from Docusaurus menu container */
 nav[class*="docSidebarContainer_"] {
-  margin-top: 0 !important;
   padding-top: 0 !important;
   border-right-width: 0 !important; /* Remove right border */
 }
@@ -90,7 +87,6 @@ nav[class*="docSidebarContainer_"] {
   font-size: 0.8125rem; /* Slightly smaller for IONOS style */
   transition: all 0.2s ease;
   text-decoration: none;
-  margin-bottom: 0.125rem;
   display: block;
   color: var(--ifm-color-emphasis-600);
   position: relative;
@@ -156,16 +152,22 @@ nav[class*="docSidebarContainer_"] {
   /* Desktop sidebar styling */
   .theme-doc-sidebar-container {
     display: flex !important; /* Ensure sidebar is visible on desktop */
+    position: sticky !important; /* Force sticky positioning */
+    top: calc(var(--ifm-navbar-height, 70px) + 1rem) !important; /* Stick below navbar */
     width: 250px;
     min-width: 250px;
     max-width: 250px;
     margin-left: 0; /* Left-align the sidebar in its column */
     margin-right: 0.75rem; /* Reduced spacing to match TOC spacing */
+    margin-top: 0 !important; /* Ensure no negative margin */
+    z-index: 10 !important; /* Ensure proper stacking */
   }
   
   .theme-doc-sidebar-menu {
     padding: 1.5rem 1rem;
     margin-left: 0; /* Left-align within the sidebar container */
+    overflow-y: auto; /* Allow scrolling within the sidebar menu */
+    max-height: calc(100vh - var(--ifm-navbar-height, 70px) - 4rem); /* Constrain height */
   }
 }
 

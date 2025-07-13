@@ -137,6 +137,7 @@ div[class*="docsWrapper"] {
     flex-shrink: 0;
     flex-basis: 250px; /* Explicit flex-basis for consistent width */
     margin-right: 0; /* Remove right margin for right alignment */
+    margin-top: 0 !important; /* Fix negative margin-top issue */
   }
   
   /* Ensure content area takes remaining space properly */
@@ -264,7 +265,6 @@ html,
 body,
 #__docusaurus,
 .main-wrapper {
-  width: 100% !important;
   max-width: none !important;
   overflow-x: visible !important;
 }
@@ -291,6 +291,7 @@ div[class*="docsWrapper"] {
     max-width: 250px !important;
     flex-shrink: 0 !important;
     margin-right: 0 !important; /* Remove right margin for right alignment */
+    margin-top: 0 !important; /* Fix negative margin-top issue */
     overflow: visible !important;
   }
 }
