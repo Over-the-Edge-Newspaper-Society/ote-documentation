@@ -1,20 +1,13 @@
 ---
-import { readFileSync } from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const logoPath = join(__dirname, '../assets/ote-logo-asset2.svg');
-let logoSvg = readFileSync(logoPath, 'utf-8');
+import logoSvg from '../assets/ote-logo-asset2.svg?raw';
 
 // Remove fixed width/height and add responsive attributes
-logoSvg = logoSvg.replace(/width="485" height="80\.16"/, 'width="100%" height="100%"');
-logoSvg = logoSvg.replace(/class="ote-logo"/, 'class="ote-logo responsive-logo"');
+let processedSvg = logoSvg.replace(/width="485" height="80\.16"/, 'width="100%" height="100%"');
+processedSvg = processedSvg.replace(/class="ote-logo"/, 'class="ote-logo responsive-logo"');
 ---
 
 <a href="/" class="site-title">
-  <Fragment set:html={logoSvg} />
+  <Fragment set:html={processedSvg} />
   <span class="sr-only">Over the Edge</span>
 </a>
 
