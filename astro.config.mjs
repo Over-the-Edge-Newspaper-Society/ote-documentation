@@ -3,7 +3,7 @@ import starlight from '@astrojs/starlight';
 import starlightClientMermaid from '@pasqal-io/starlight-client-mermaid';
 
 export default defineConfig({
-  site: 'https://over-the-edge-newspaper-society.github.io',
+  site: 'https://ote.github.io/',
   base: '/ote-documentation/',
   integrations: [
     starlight({
