@@ -1,9 +1,9 @@
 ---
+title: Templates
+description: Editorial templates for Over the Edge contributors
 sidebar:
   order: 1
 ---
-
-# Templates
 
 ## Overview
 

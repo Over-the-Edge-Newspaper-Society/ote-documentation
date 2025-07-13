@@ -1,4 +1,6 @@
 ---
+title: Review Process
+description: Editorial review process and guidelines
 sidebar:
   order: 2
 ---

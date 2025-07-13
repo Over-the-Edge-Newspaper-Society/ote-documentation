@@ -1,4 +1,9 @@
-# Forms Receiver Flow
+---
+title: Forms Receiver Flow
+description: Entry point flow for processing Microsoft Form submissions
+sidebar:
+  order: 3
+---
 
 The Forms Receiver flow is the entry point of the submission workflow, responsible for processing new article submissions from the Microsoft Form and creating structured data in SharePoint.
 

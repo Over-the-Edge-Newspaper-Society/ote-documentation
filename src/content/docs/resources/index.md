@@ -1,9 +1,9 @@
 ---
+title: Resources
+description: Essential tools, templates, and contacts for Over the Edge contributors and staff
 sidebar:
   order: 1
 ---
-
-# Resources
 
 Essential tools, templates, and contacts for Over the Edge contributors and staff.
 

@@ -1,4 +1,9 @@
-# Email Drafter Flow
+---
+title: Email Drafter Flow
+description: Automated email drafting flow for contributor responses
+sidebar:
+  order: 2
+---
 
 The Email Drafter flow creates customized response emails for contributors based on their submission status, payment details, and contributor classification.
 

@@ -1,4 +1,9 @@
-# Publication Filing Flow
+---
+title: Publication Filing Flow
+description: Final step for moving accepted articles to production directory
+sidebar:
+  order: 5
+---
 
 The Publication Filing flow handles the final step of moving accepted and fully processed articles into the newspaper production directory structure.
 

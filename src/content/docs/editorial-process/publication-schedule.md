@@ -1,4 +1,6 @@
 ---
+title: Publication Schedule
+description: Editorial publication schedule and timing guidelines
 sidebar:
   order: 3
 ---

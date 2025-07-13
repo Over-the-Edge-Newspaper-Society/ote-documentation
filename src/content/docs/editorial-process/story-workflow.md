@@ -1,4 +1,6 @@
 ---
+title: Story Workflow
+description: Editorial workflow process for stories
 sidebar:
   order: 1
 ---

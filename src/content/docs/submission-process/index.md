@@ -1,4 +1,9 @@
-# Submission Process Workflow
+---
+title: Submission Process Workflow
+description: Automated submission process for article contributions
+sidebar:
+  order: 1
+---
 
 The automated submission process handles article contributions from initial submission through final publication using Microsoft Power Automate flows integrated with SharePoint and Microsoft Forms.
 

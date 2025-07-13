@@ -1,9 +1,9 @@
 ---
+title: Contacts
+description: Key contacts for Over the Edge contributors and staff
 sidebar:
   order: 3
 ---
-
-# Contacts
 
 ## Overview
 

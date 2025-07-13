@@ -1,4 +1,9 @@
-# Payment & Bonus Calculator
+---
+title: Payment & Bonus Calculator
+description: Financial compensation calculator for accepted articles
+sidebar:
+  order: 4
+---
 
 The Payment & Bonus Calculator flow determines the financial compensation for accepted articles based on editorial review decisions and contributor classifications.
 

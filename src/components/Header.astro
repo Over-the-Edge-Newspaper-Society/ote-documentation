@@ -2,23 +2,20 @@
 import Search from '@astrojs/starlight/components/Search.astro';
 import SocialIcons from '@astrojs/starlight/components/SocialIcons.astro';
 import ThemeSelect from '@astrojs/starlight/components/ThemeSelect.astro';
-
-const baseUrl = import.meta.env.BASE_URL;
-const logoPath = baseUrl.endsWith('/') ? baseUrl + 'img/ote-logo.svg' : baseUrl + '/img/ote-logo.svg';
 ---
 
 <header class="ote-header">
   <div class="header-content">
     <div class="brand">
-      <img src={logoPath} alt="Over the Edge" />
+      <img src="/ote-documentation/img/ote-logo.svg" alt="Over the Edge" />
       <span class="title">Over the Edge</span>
     </div>
     
     <nav class="nav-links">
-      <a href={baseUrl + "quickstart/"}>Quick Start</a>
-      <a href={baseUrl + "style-guide/"}>Style Guide</a>
-      <a href={baseUrl + "editorial-process/"}>Editorial</a>
-      <a href={baseUrl + "resources/"}>Resources</a>
+      <a href="/ote-documentation/quickstart/">Quick Start</a>
+      <a href="/ote-documentation/style-guide/">Style Guide</a>
+      <a href="/ote-documentation/editorial-process/">Editorial</a>
+      <a href="/ote-documentation/resources/">Resources</a>
     </nav>
     
     <div class="header-tools">

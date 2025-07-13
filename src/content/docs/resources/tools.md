@@ -1,9 +1,9 @@
 ---
+title: Tools
+description: Editorial tools and resources
 sidebar:
   order: 2
 ---
-
-# Tools
 
 ## Overview
 

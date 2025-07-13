@@ -1,16 +1,18 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import starlightClientMermaid from '@pasqal-io/starlight-client-mermaid';
 
 export default defineConfig({
   site: 'https://over-the-edge-newspaper-society.github.io',
   base: '/ote-documentation/',
   integrations: [
     starlight({
+      plugins: [starlightClientMermaid()],
       title: 'Over the Edge',
       description: 'News Documentation & Style Guide',
       logo: {
-        src: './src/assets/ote-logo.svg',
-        replacesTitle: false,
+        src: './src/assets/ote-logo-asset2.svg',
+        replacesTitle: true,
       },
       social: [
         {
@@ -20,32 +22,13 @@ export default defineConfig({
         },
       ],
       editLink: {
-        baseUrl: 'https://github.com/Over-the-Edge-Newspaper-Society/ote-documentation/edit/main/',
+        baseUrl: 'https://github.com/Over-the-Edge-Newspaper-Society/ote-documentation/edit/starlight/',
       },
       sidebar: [
         {
           label: 'Getting Started',
           items: [
             { label: 'Introduction', link: '/intro/' },
-            { label: 'Quick Start', link: '/quickstart/' },
-          ],
-        },
-        {
-          label: 'Style Guide',
-          items: [
-            { label: 'Overview', link: '/style-guide/' },
-            { label: 'AP Style Guidelines', link: '/style-guide/ap-style/' },
-            { label: 'Voice and Tone', link: '/style-guide/voice-and-tone/' },
-            { label: 'Writing Standards', link: '/style-guide/writing-standards/' },
-          ],
-        },
-        {
-          label: 'Editorial Process',
-          items: [
-            { label: 'Overview', link: '/editorial-process/' },
-            { label: 'Story Workflow', link: '/editorial-process/story-workflow/' },
-            { label: 'Review Process', link: '/editorial-process/review-process/' },
-            { label: 'Publication Schedule', link: '/editorial-process/publication-schedule/' },
           ],
         },
         {
@@ -65,6 +48,7 @@ export default defineConfig({
             { label: 'Templates', link: '/resources/templates/' },
             { label: 'Tools', link: '/resources/tools/' },
             { label: 'Contacts', link: '/resources/contacts/' },
+            { label: 'Diagrams', link: '/resources/diagrams/' },
           ],
         },
       ],
@@ -72,15 +56,13 @@ export default defineConfig({
         './src/styles/custom.scss',
       ],
       favicon: '/favicon.ico',
-      head: [
-        {
-          tag: 'meta',
-          attrs: {
-            property: 'og:image',
-            content: 'https://over-the-edge-newspaper-society.github.io/ote-documentation/img/ote-social-card.jpg',
-          },
+      defaultLocale: 'root',
+      locales: {
+        root: {
+          label: 'English',
+          lang: 'en',
         },
-      ],
+      },
     }),
   ],
   markdown: {
