@@ -10,10 +10,6 @@ export default defineConfig({
       plugins: [starlightClientMermaid()],
       title: 'Over the Edge',
       description: 'News Documentation & Style Guide',
-      logo: {
-        src: './src/assets/ote-logo-asset2.svg',
-        replacesTitle: true,
-      },
       social: [
         {
           icon: 'github',
@@ -55,7 +51,10 @@ export default defineConfig({
       customCss: [
         './src/styles/custom.scss',
       ],
-      favicon: '/favicon.ico',
+      components: {
+        SiteTitle: './src/components/LogoInline.astro',
+      },
+      favicon: '/img/ote-logo.svg',
       defaultLocale: 'root',
       locales: {
         root: {

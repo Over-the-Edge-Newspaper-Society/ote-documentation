@@ -1,13 +1,59 @@
-/* Minimal OTE color overrides for Tauri-like design */
+/* OTE theme with shadcn-inspired dark mode */
 :root {
-  /* Your OTE brand colors mapped to Starlight's system */
-  --sl-hue-accent: 158; /* Green hue */
-  --sl-color-accent-low: #2c6753;   /* your dark green */
-  --sl-color-accent: #44a57f;       /* your medium green */
-  --sl-color-accent-high: #7addb3;  /* your light green */
-  
-  /* Optional: fine-tune if needed */
+  /* Light mode colors */
+  --sl-hue-accent: 158; /* Green hue for brand */
+  --sl-color-accent-low: #2c6753;   /* dark green */
+  --sl-color-accent: #44a57f;       /* medium green */
+  --sl-color-accent-high: #7addb3;  /* light green */
   --sl-color-text-accent: #44a57f;
 }
 
-/* Remove any other custom overrides unless absolutely necessary */
+/* Dark mode with shadcn-style colors */
+:root[data-theme="dark"] {
+  /* Background colors - shadcn dark palette */
+  --sl-color-bg: hsl(224, 71%, 4%);          /* shadcn background */
+  --sl-color-bg-nav: hsl(224, 71%, 4%);      /* nav same as bg */
+  --sl-color-bg-sidebar: hsl(224, 71%, 6%);  /* slightly lighter sidebar */
+  --sl-color-bg-inline-code: hsl(224, 71%, 9%); /* code background */
+  
+  /* Text colors - improved contrast */
+  --sl-color-text: hsl(210, 40%, 98%);       /* shadcn foreground */
+  --sl-color-text-invert: hsl(224, 71%, 4%);
+  --sl-color-gray-1: hsl(210, 40%, 98%);     /* brightest text */
+  --sl-color-gray-2: hsl(215, 20%, 85%);     /* slightly dimmer */
+  --sl-color-gray-3: hsl(217, 19%, 70%);     /* muted text */
+  --sl-color-gray-4: hsl(215, 14%, 55%);     /* more muted */
+  --sl-color-gray-5: hsl(220, 9%, 40%);      /* subtle */
+  --sl-color-gray-6: hsl(224, 71%, 15%);     /* borders/dividers */
+  
+  /* Keep your green accent colors */
+  --sl-hue-accent: 158;
+  --sl-color-accent-low: #1a4d3a;           /* darker for better contrast */
+  --sl-color-accent: #44a57f;               /* your brand green */
+  --sl-color-accent-high: #7addb3;          /* light green */
+  --sl-color-text-accent: #44a57f;
+  
+  /* Additional shadcn-style refinements */
+  --sl-color-bg-accent: hsl(158, 40%, 10%); /* subtle green bg */
+  --sl-color-white: hsl(210, 40%, 98%);
+  --sl-color-black: hsl(224, 71%, 4%);
+  
+  /* Border color */
+  --sl-color-hairline-light: hsl(224, 71%, 12%);
+  --sl-color-hairline: hsl(224, 71%, 15%);
+  --sl-color-hairline-shade: hsl(224, 71%, 18%);
+}
+
+/* Additional refinements for better contrast */
+:root[data-theme="dark"] {
+  /* Code blocks */
+  --sl-color-bg-code: hsl(224, 71%, 8%);
+  
+  /* Ensure links are visible */
+  --sl-color-text-link: #7addb3;
+  
+  /* Card/panel backgrounds */
+  --sl-color-bg-card: hsl(224, 71%, 7%);
+}
+
+/* Logo colors are now handled by JavaScript in /scripts/logo-theme.js */
